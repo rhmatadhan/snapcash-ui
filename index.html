@@ -1,51 +1,576 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snapcash E-Wallet</title>
-    <!-- Load Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Snapcash - Dashboard Utama</title>
+    <!-- Load Tailwind CSS Compiled stylesheet -->
+    <link rel="stylesheet" href="./dist/css/style.css" />
+    <!-- Load Google Fonts & Material Symbols -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
     />
-    <!-- Load Tailwind CSS -->
-    <link rel="stylesheet" href="./dist/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body
-    class="flex min-h-screen items-center justify-center bg-wallet-softgray font-sans"
+    class="min-h-screen bg-surface pb-safe-area-bottom font-sans text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container"
   >
-    <div
-      class="w-full max-w-sm rounded-2xl bg-wallet-charcoal p-8 text-center shadow-xl"
+    <!-- App Container -->
+    <main
+      class="relative mx-auto min-h-screen w-full max-w-container-max overflow-hidden bg-surface px-gutter shadow-2xl md:px-0"
     >
-      <h1 class="mb-2 text-2xl font-bold text-white">Snapcash</h1>
-      <p class="mb-6 text-sm text-wallet-softgray">
-        Your modern E-Wallet solution.
-      </p>
-
-      <div class="mb-6 rounded-xl border border-white/5 bg-white/10 p-4">
-        <p class="mb-1 text-sm text-gray-300">Total Balance</p>
-        <p class="text-3xl font-bold text-wallet-lime">$12,450.00</p>
-      </div>
-
-      <button
-        class="flex w-full items-center justify-center gap-2 rounded-xl bg-wallet-lime py-3 font-semibold text-wallet-charcoal transition-all hover:bg-opacity-90"
+      <!-- Header -->
+      <header
+        class="sticky top-0 z-40 w-full bg-surface pb-2 pt-4 md:px-gutter"
       >
-        <!-- We will add icons later, placeholder for now -->
-        <span>Send Money</span>
-      </button>
+        <div
+          class="mx-auto flex max-w-container-max items-center justify-between"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="relative h-10 w-10 overflow-hidden rounded-full border-2 border-surface-container-highest"
+            >
+              <img
+                alt="Profile Picture"
+                class="h-full w-full object-cover"
+                data-alt="A close-up, professional portrait of an Indonesian man in his late 20s, smiling warmly. The lighting is soft and natural, emphasizing approachability and trust. The background is a slightly blurred modern office space. The overall aesthetic is clean, bright, and suitable for a high-trust fintech application's user profile avatar."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYbR7QTd61WC__INH8fxcz_3eORlHXJP6arl7TureSCDo5o_wZhP9-3QmSln94v5Bu60Dv8S5sLMFefAelt9KtvWdQrtcFiE4wWUfzpE8Vhf_lNBRKjBit5jU9qKdmX5uhcbRCAKjL8LpXIkPYrovZ3mvRR27KyvbQjelNb2Pd2txSjWrX6VyUwfHclh3o-l1KN-yVyj7JA-GPpI_ycAtLcfAkcLWsfUMfMRH_fWdWqtu4v2KCcRAC"
+              />
+            </div>
+            <div class="flex flex-col">
+              <span class="font-label-sm text-label-sm text-on-surface-variant"
+                >Selamat datang,</span
+              >
+              <div class="flex items-center gap-1">
+                <span
+                  class="max-w-[150px] truncate font-headline-md text-headline-md text-primary"
+                  >Abay</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <button
+              aria-label="Bantuan"
+              class="relative rounded-full p-2 text-on-surface-variant transition-colors transition-transform hover:bg-surface-container-high active:scale-95"
+            >
+              <span aria-hidden="true" class="material-symbols-outlined"
+                >help_outline</span
+              >
+            </button>
+            <button
+              aria-label="Notifikasi"
+              class="relative rounded-full p-2 text-on-surface-variant transition-colors transition-transform hover:bg-surface-container-high active:scale-95"
+            >
+              <span aria-hidden="true" class="material-symbols-outlined"
+                >notifications</span
+              >
+              <span
+                class="absolute right-2 top-2 h-2 w-2 rounded-full bg-error-red ring-2 ring-surface"
+              ></span>
+            </button>
+          </div>
+        </div>
+      </header>
 
-      <div class="mt-4">
-        <a
-          href="auth/register.html"
-          class="text-xs font-semibold text-wallet-lime hover:underline"
-          >Register New Account</a
+      <!-- Main Content -->
+      <div class="mt-4 flex flex-col gap-section-gap pb-8 md:px-gutter">
+        <!-- Hero Card (Balance) -->
+        <section
+          class="group relative overflow-hidden rounded-3xl bg-primary-container p-card-padding text-on-primary shadow-lg"
+        >
+          <div class="relative z-10 flex flex-col gap-6">
+            <div class="flex items-start justify-between">
+              <div class="flex flex-col gap-1">
+                <div class="flex items-center gap-2 text-on-primary-container">
+                  <span class="font-body-md text-body-md">Total Saldo</span>
+                  <button
+                    aria-label="Tampilkan Saldo"
+                    class="rounded-full p-1 transition-colors hover:bg-surface-tint"
+                    id="toggleBalanceBtn"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[18px]"
+                      id="toggleBalanceIcon"
+                      >visibility</span
+                    >
+                  </button>
+                </div>
+                <h2
+                  class="font-headline-xl-mobile text-headline-xl-mobile tracking-tight text-on-primary md:font-headline-xl md:text-headline-xl"
+                  id="balanceText"
+                >
+                  Rp 12.450.000
+                </h2>
+              </div>
+              <div
+                class="flex h-6 items-center justify-center rounded-full border border-outline/20 bg-white/10 px-3 py-0.5 backdrop-blur-sm"
+              >
+                <span
+                  class="font-label-sm text-label-sm leading-none text-on-primary"
+                  >Snap Plus</span
+                >
+              </div>
+            </div>
+            <!-- Quick Actions -->
+            <div class="grid grid-cols-4 gap-2 pt-2">
+              <button
+                class="group/action flex flex-col items-center gap-2 transition-transform active:scale-95"
+              >
+                <div
+                  class="flex h-12 w-12 items-center justify-center rounded-xl bg-secondary-container shadow-md shadow-secondary-container/20 transition-colors group-hover/action:bg-secondary-fixed"
+                >
+                  <span
+                    class="material-symbols-outlined fill text-[24px] text-on-secondary-container"
+                    >add_circle</span
+                  >
+                </div>
+                <span class="font-label-sm text-label-sm text-on-primary"
+                  >Top Up</span
+                >
+              </button>
+              <button
+                class="group/action flex flex-col items-center gap-2 transition-transform active:scale-95"
+              >
+                <div
+                  class="flex h-12 w-12 items-center justify-center rounded-xl border border-outline/20 bg-white/10 backdrop-blur-sm transition-colors group-hover/action:bg-white/20"
+                >
+                  <span
+                    class="material-symbols-outlined text-[24px] text-on-primary"
+                    >arrow_upward</span
+                  >
+                </div>
+                <span class="font-label-sm text-label-sm text-on-primary"
+                  >Transfer</span
+                >
+              </button>
+              <button
+                class="group/action flex flex-col items-center gap-2 transition-transform active:scale-95"
+              >
+                <div
+                  class="flex h-12 w-12 items-center justify-center rounded-xl border border-outline/20 bg-white/10 backdrop-blur-sm transition-colors group-hover/action:bg-white/20"
+                >
+                  <span
+                    class="material-symbols-outlined text-[24px] text-on-primary"
+                    >arrow_downward</span
+                  >
+                </div>
+                <span class="font-label-sm text-label-sm text-on-primary"
+                  >Minta</span
+                >
+              </button>
+              <button
+                class="group/action flex flex-col items-center gap-2 transition-transform active:scale-95"
+              >
+                <div
+                  class="flex h-12 w-12 items-center justify-center rounded-xl border border-outline/20 bg-white/10 backdrop-blur-sm transition-colors group-hover/action:bg-white/20"
+                >
+                  <span
+                    class="material-symbols-outlined text-[24px] text-on-primary"
+                    >credit_card</span
+                  >
+                </div>
+                <span class="font-label-sm text-label-sm text-on-primary"
+                  >Tarik</span
+                >
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="flex flex-col gap-4">
+          <div class="grid grid-cols-4 gap-x-2 gap-y-6">
+            <button
+              class="group flex flex-col items-center gap-2 transition-transform active:scale-95"
+            >
+              <div
+                class="flex h-14 w-14 items-center justify-center rounded-2xl border border-border-subtle bg-surface-container-lowest shadow-sm transition-colors group-hover:border-primary-fixed"
+              >
+                <span
+                  class="material-symbols-outlined fill text-[28px] text-primary"
+                  >phone_iphone</span
+                >
+              </div>
+              <span
+                class="text-center font-label-sm text-label-sm leading-tight text-on-surface-variant"
+                >Pulsa &amp;<br />Data</span
+              >
+            </button>
+            <button
+              class="group flex flex-col items-center gap-2 transition-transform active:scale-95"
+            >
+              <div
+                class="flex h-14 w-14 items-center justify-center rounded-2xl border border-border-subtle bg-surface-container-lowest shadow-sm transition-colors group-hover:border-primary-fixed"
+              >
+                <span
+                  class="material-symbols-outlined fill text-[28px] text-primary"
+                  >electric_bolt</span
+                >
+              </div>
+              <span
+                class="text-center font-label-sm text-label-sm leading-tight text-on-surface-variant"
+                >Listrik<br />PLN</span
+              >
+            </button>
+            <button
+              class="group flex flex-col items-center gap-2 transition-transform active:scale-95"
+            >
+              <div
+                class="flex h-14 w-14 items-center justify-center rounded-2xl border border-border-subtle bg-surface-container-lowest shadow-sm transition-colors group-hover:border-primary-fixed"
+              >
+                <span
+                  class="material-symbols-outlined fill text-[28px] text-primary"
+                  >sports_esports</span
+                >
+              </div>
+              <span
+                class="text-center font-label-sm text-label-sm leading-tight text-on-surface-variant"
+                >Voucher<br />Game</span
+              >
+            </button>
+            <button
+              class="group flex flex-col items-center gap-2 transition-transform active:scale-95"
+            >
+              <div
+                class="flex h-14 w-14 items-center justify-center rounded-2xl border border-border-subtle bg-surface-container-lowest shadow-sm transition-colors group-hover:border-primary-fixed"
+              >
+                <span
+                  class="material-symbols-outlined fill text-[28px] text-primary"
+                  >health_and_safety</span
+                >
+              </div>
+              <span
+                class="text-center font-label-sm text-label-sm leading-tight text-on-surface-variant"
+                >BPJS<br />Kes</span
+              >
+            </button>
+            <button
+              class="group flex flex-col items-center gap-2 transition-transform active:scale-95"
+            >
+              <div
+                class="flex h-14 w-14 items-center justify-center rounded-2xl border border-border-subtle bg-surface-container-lowest shadow-sm transition-colors group-hover:border-primary-fixed"
+              >
+                <span
+                  class="material-symbols-outlined fill text-[28px] text-primary"
+                  >water_drop</span
+                >
+              </div>
+              <span
+                class="text-center font-label-sm text-label-sm leading-tight text-on-surface-variant"
+                >Air<br />PDAM</span
+              >
+            </button>
+            <button
+              class="group flex flex-col items-center gap-2 transition-transform active:scale-95"
+            >
+              <div
+                class="flex h-14 w-14 items-center justify-center rounded-2xl border border-border-subtle bg-surface-container-lowest shadow-sm transition-colors group-hover:border-primary-fixed"
+              >
+                <span
+                  class="material-symbols-outlined fill text-[28px] text-primary"
+                  >router</span
+                >
+              </div>
+              <span
+                class="text-center font-label-sm text-label-sm leading-tight text-on-surface-variant"
+                >Internet<br />&amp; TV</span
+              >
+            </button>
+            <button
+              class="group flex flex-col items-center gap-2 transition-transform active:scale-95"
+            >
+              <div
+                class="flex h-14 w-14 items-center justify-center rounded-2xl border border-border-subtle bg-surface-container-lowest shadow-sm transition-colors group-hover:border-primary-fixed"
+              >
+                <span
+                  class="material-symbols-outlined fill text-[28px] text-primary"
+                  >train</span
+                >
+              </div>
+              <span
+                class="text-center font-label-sm text-label-sm leading-tight text-on-surface-variant"
+                >Tiket<br />Kereta</span
+              >
+            </button>
+            <button
+              class="group flex flex-col items-center gap-2 transition-transform active:scale-95"
+            >
+              <div
+                class="flex h-14 w-14 items-center justify-center rounded-2xl border border-border-subtle bg-surface-container-highest shadow-sm transition-colors hover:bg-surface-variant"
+              >
+                <span class="material-symbols-outlined text-[28px] text-primary"
+                  >grid_view</span
+                >
+              </div>
+              <span
+                class="text-center font-label-sm text-label-sm leading-tight text-on-surface-variant"
+                >Semua<br />Layanan</span
+              >
+            </button>
+          </div>
+        </section>
+
+        <!-- Promo Card -->
+        <section class="mt-2">
+          <div
+            class="relative flex items-center justify-between overflow-hidden rounded-2xl bg-primary-container p-card-padding shadow-md"
+          >
+            <!-- Diagonal forest green background shape -->
+            <div
+              class="pointer-events-none absolute right-0 top-0 h-full w-1/2 opacity-100"
+            >
+              <svg
+                class="h-full w-full text-on-secondary-fixed-variant"
+                fill="currentColor"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+              >
+                <polygon points="100,0 35,0 100,100"></polygon>
+              </svg>
+            </div>
+            <div class="relative z-10 flex max-w-[65%] flex-col gap-1">
+              <span
+                class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-container"
+                >Promo Spesial</span
+              >
+              <h3 class="font-headline-md text-headline-md text-on-primary">
+                Cashback 50% untuk pembayaran tagihan pertamamu!
+              </h3>
+            </div>
+            <div class="relative z-10">
+              <button
+                class="rounded-full bg-secondary-container px-4 py-2 font-label-md text-label-md text-on-secondary-container transition-colors hover:bg-secondary-fixed active:scale-95"
+              >
+                Pakai
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recent Transactions -->
+        <section class="flex flex-col gap-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-headline-lg text-headline-lg text-on-surface">
+              Riwayat Terakhir
+            </h3>
+            <button
+              class="font-label-md text-label-md text-primary transition-colors hover:text-primary-fixed-dim"
+            >
+              Lihat Semua
+            </button>
+          </div>
+          <div
+            class="flex flex-col overflow-hidden rounded-2xl border border-border-subtle bg-surface-container-lowest shadow-sm"
+          >
+            <!-- Transaction Item 1 -->
+            <div
+              class="flex cursor-pointer items-center justify-between border-b border-border-subtle p-4 transition-colors hover:bg-surface-container-low"
+            >
+              <div class="flex items-center gap-3">
+                <div
+                  class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-container"
+                >
+                  <span
+                    class="material-symbols-outlined fill text-on-surface-variant"
+                    >shopping_bag</span
+                  >
+                </div>
+                <div class="flex flex-col">
+                  <span
+                    class="font-headline-md text-headline-md text-on-surface"
+                    >Tokopedia</span
+                  >
+                  <span class="font-body-sm text-body-sm text-text-muted"
+                    >Hari ini, 14:30 • Pembayaran</span
+                  >
+                </div>
+              </div>
+              <span
+                class="font-headline-md text-headline-md font-semibold text-on-surface"
+                >-Rp 150.000</span
+              >
+            </div>
+            <!-- Transaction Item 2 -->
+            <div
+              class="flex cursor-pointer items-center justify-between border-b border-border-subtle p-4 transition-colors hover:bg-surface-container-low"
+            >
+              <div class="flex items-center gap-3">
+                <div
+                  class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-success-green/10"
+                >
+                  <span
+                    class="material-symbols-outlined fill text-success-green"
+                    >arrow_downward</span
+                  >
+                </div>
+                <div class="flex flex-col">
+                  <span
+                    class="font-headline-md text-headline-md text-on-surface"
+                    >Transfer Masuk</span
+                  >
+                  <span class="font-body-sm text-body-sm text-text-muted"
+                    >Kemarin, 09:15 • Dari Budi</span
+                  >
+                </div>
+              </div>
+              <span
+                class="font-headline-md text-headline-md font-semibold text-success-green"
+                >+Rp 2.500.000</span
+              >
+            </div>
+            <!-- Transaction Item 3 -->
+            <div
+              class="flex cursor-pointer items-center justify-between border-b border-border-subtle p-4 transition-colors hover:bg-surface-container-low"
+            >
+              <div class="flex items-center gap-3">
+                <div
+                  class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-container"
+                >
+                  <span
+                    class="material-symbols-outlined fill text-on-surface-variant"
+                    >local_cafe</span
+                  >
+                </div>
+                <div class="flex flex-col">
+                  <span
+                    class="font-headline-md text-headline-md text-on-surface"
+                    >Kopi Kenangan</span
+                  >
+                  <span class="font-body-sm text-body-sm text-text-muted"
+                    >12 Mei, 18:45 • QRIS</span
+                  >
+                </div>
+              </div>
+              <span
+                class="font-headline-md text-headline-md font-semibold text-on-surface"
+                >-Rp 38.000</span
+              >
+            </div>
+            <!-- Transaction Item 4 -->
+            <div
+              class="flex cursor-pointer items-center justify-between p-4 transition-colors hover:bg-surface-container-low"
+            >
+              <div class="flex items-center gap-3">
+                <div
+                  class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-container"
+                >
+                  <span
+                    class="material-symbols-outlined fill text-on-surface-variant"
+                    >fastfood</span
+                  >
+                </div>
+                <div class="flex flex-col">
+                  <span
+                    class="font-headline-md text-headline-md text-on-surface"
+                    >McDonald's</span
+                  >
+                  <span class="font-body-sm text-body-sm text-text-muted"
+                    >10 Mei, 12:15 • QRIS</span
+                  >
+                </div>
+              </div>
+              <span
+                class="font-headline-md text-headline-md font-semibold text-on-surface"
+                >-Rp 75.000</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- Bottom spacing -->
+        <div class="h-8"></div>
+      </div>
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav
+      class="fixed bottom-0 left-1/2 z-50 flex h-navbar-height w-full max-w-container-max -translate-x-1/2 items-center justify-around rounded-t-3xl border-t border-outline-variant bg-surface-container-lowest/80 px-2 pb-6 pt-2 shadow-lg backdrop-blur-md"
+    >
+      <!-- Home (Active) -->
+      <button
+        class="group flex flex-1 flex-col items-center justify-center text-primary transition-all duration-200 ease-in-out after:mt-0.5 after:h-1 after:w-1 after:rounded-full after:bg-secondary-container after:content-[''] active:scale-90"
+      >
+        <span
+          class="material-symbols-outlined fill rounded-full p-1 transition-colors group-hover:bg-surface-container-highest/20"
+          >home</span
+        >
+        <span class="font-label-sm text-label-sm">Home</span>
+      </button>
+      <!-- History -->
+      <button
+        class="group flex flex-1 flex-col items-center justify-center text-on-surface-variant transition-all duration-200 ease-in-out active:scale-90"
+      >
+        <span
+          class="material-symbols-outlined rounded-full p-1 transition-colors group-hover:bg-surface-container-highest/20"
+          >receipt_long</span
+        >
+        <span class="font-label-sm text-label-sm">History</span>
+      </button>
+      <div
+        class="relative flex h-full flex-1 flex-col items-center justify-end pb-1.5"
+      >
+        <button
+          class="absolute -top-10 left-1/2 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full border-4 border-surface bg-secondary-container shadow-[0_8px_16px_rgba(178,247,70,0.35)] transition-transform hover:bg-secondary-fixed active:scale-95"
+        >
+          <span
+            class="material-symbols-outlined fill text-[28px] text-on-secondary-container"
+            >qr_code_scanner</span
+          >
+        </button>
+        <span class="font-label-sm text-label-sm text-on-surface-variant"
+          >Scan</span
         >
       </div>
-    </div>
+      <!-- Inbox -->
+      <button
+        class="group flex flex-1 flex-col items-center justify-center text-on-surface-variant transition-all duration-200 ease-in-out active:scale-90"
+      >
+        <span
+          class="material-symbols-outlined rounded-full p-1 transition-colors group-hover:bg-surface-container-highest/20"
+          >mail</span
+        >
+        <span class="font-label-sm text-label-sm">Inbox</span>
+      </button>
+      <!-- Account -->
+      <button
+        class="group flex flex-1 flex-col items-center justify-center text-on-surface-variant transition-all duration-200 ease-in-out active:scale-90"
+      >
+        <span
+          class="material-symbols-outlined rounded-full p-1 transition-colors group-hover:bg-surface-container-highest/20"
+          >person</span
+        >
+        <span class="font-label-sm text-label-sm">Account</span>
+      </button>
+    </nav>
 
-    <script src="./src/js/app.js"></script>
+    <!-- Interactive script for balance toggle -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.getElementById("toggleBalanceBtn");
+        const balanceText = document.getElementById("balanceText");
+        const toggleIcon = document.getElementById("toggleBalanceIcon");
+        let isVisible = true;
+        const actualBalance = "Rp 12.450.000";
+        const hiddenBalance = "Rp •••••••••";
+
+        if (toggleBtn && balanceText && toggleIcon) {
+          toggleBtn.addEventListener("click", () => {
+            isVisible = !isVisible;
+            if (isVisible) {
+              balanceText.textContent = actualBalance;
+              toggleIcon.textContent = "visibility";
+            } else {
+              balanceText.textContent = hiddenBalance;
+              toggleIcon.textContent = "visibility_off";
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>
