@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lupa PIN - SnapCash</title>
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Load Tailwind CSS -->
+    <link rel="stylesheet" href="../dist/css/style.css" />
+  </head>
+  <body
+    class="flex min-h-screen items-center justify-center bg-[#F4F5F7] font-sans md:px-4 md:py-8"
+  >
+    <div
+      class="flex min-h-screen w-full flex-col justify-between rounded-none border border-gray-100/50 bg-white p-8 shadow-[0_8px_30px_rgb(0,0,0,0.03)] md:min-h-[600px] md:max-w-[560px] md:rounded-[24px] md:p-12"
+    >
+      <div>
+        <!-- Logo SnapCash -->
+        <div class="mb-6 flex items-center justify-center">
+          <span class="text-2xl font-extrabold tracking-tight text-gray-900">
+            SnapCash<span class="text-[#A8E034]">.</span>
+          </span>
+        </div>
+
+        <!-- Header -->
+        <div class="mb-8 text-center">
+          <h1
+            class="text-xl font-bold tracking-tight text-gray-900 md:text-2xl"
+          >
+            Lupa PIN?
+          </h1>
+          <p class="mt-2 text-xs font-medium text-gray-500 md:text-sm">
+            Masukkan alamat email yang terdaftar. Kami akan mengirimkan tautan
+            verifikasi untuk mereset PIN Anda.
+          </p>
+        </div>
+
+        <!-- Form Lupa PIN -->
+        <form class="mt-6 space-y-6" action="reset-pin.html" method="GET">
+          <!-- Email -->
+          <div>
+            <label
+              for="email"
+              class="mb-2 block text-xs font-bold text-gray-800"
+              >Alamat Email</label
+            >
+            <div
+              class="relative rounded-xl border border-gray-200 bg-white transition-all focus-within:border-gray-400 focus-within:ring-2 focus-within:ring-[#A8E034]/20"
+            >
+              <div
+                class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-gray-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="block w-full rounded-xl bg-transparent py-3.5 pl-11 pr-4 text-sm text-gray-800 placeholder-gray-400 outline-none"
+                placeholder="nama@email.com"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Button Kirim Verifikasi -->
+          <button
+            type="submit"
+            class="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-[#A8E034] px-4 py-3.5 font-bold text-gray-900 shadow-sm transition-colors hover:bg-[#97cf29] focus:outline-none focus:ring-2 focus:ring-[#A8E034]/40 active:bg-[#86b824]"
+          >
+            <span>Kirim Verifikasi</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </button>
+        </form>
+
+        <!-- Back Button -->
+        <div class="mt-6 text-center">
+          <a
+            href="login.html"
+            class="inline-flex items-center gap-2 text-xs font-bold text-gray-800 transition-colors hover:text-gray-950"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-3.5 w-3.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            <span>Kembali ke Halaman Login</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer Keamanan -->
+      <div
+        class="mt-8 flex flex-col items-center gap-4 border-t border-gray-50 pt-6 text-center"
+      >
+        <div
+          class="flex items-center gap-1.5 text-[10px] font-medium text-gray-400"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-3.5 w-3.5 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 00-2 2zm10-10V7a4 4 0 00-8 0v4h8z"
+            />
+          </svg>
+          <span>Dilindungi oleh Enkripsi 256-bit SnapCash Guard</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
