@@ -6,86 +6,174 @@
     <title>Pendaftaran Selesai - SnapCash</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../dist/css/style.css" />
   </head>
-  <body class="bg-[#F4F5F7] flex min-h-screen items-center justify-center font-sans px-4 py-8">
-    <div class="bg-white w-full max-w-[560px] rounded-[24px] p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-gray-100/50">
-      
+  <body
+    class="flex min-h-screen items-center justify-center bg-[#F4F5F7] font-sans md:px-4 md:py-8"
+  >
+    <div
+      class="flex w-full min-h-screen md:min-h-[600px] md:max-w-[560px] flex-col justify-between rounded-none md:rounded-[24px] border border-gray-100/50 bg-white p-8 shadow-[0_8px_30px_rgb(0,0,0,0.03)] md:p-12"
+    >
       <!-- Stepper (4 Steps) -->
-      <div class="flex items-center justify-center gap-1 md:gap-2 mb-8 py-2">
-        <!-- Step 1: Identitas (Completed) -->
-        <div class="flex items-center">
-          <div class="w-6 h-6 md:w-7 md:h-7 rounded-full bg-[#A8E034] text-gray-900 flex items-center justify-center shadow-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 md:h-4 md:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
+      <div class="relative mt-6 mb-8 flex items-start justify-between px-6 py-4">
+        <!-- Connector Line -->
+        <div class="absolute left-[38px] right-[38px] top-[30px] h-[2px] -translate-y-1/2 z-0">
+          <div class="w-full h-full bg-gray-200 rounded-full"></div>
+          <div class="absolute top-0 left-0 h-full bg-[#A8E034] rounded-full transition-all duration-300" style="width: 100%;"></div>
         </div>
 
-        <div class="w-4 md:w-8 h-[1px] bg-[#A8E034] mx-1 md:mx-2"></div>
+        <!-- Step 1: Identitas (Completed) -->
+        <div class="relative z-10 flex flex-col items-center w-16">
+          <div
+            class="flex h-7 w-7 items-center justify-center rounded-full bg-[#A8E034] text-gray-900 shadow-sm"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="3"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+          <span class="mt-2 text-[10px] font-medium text-gray-500 text-center"
+            >Identitas</span
+          >
+        </div>
 
         <!-- Step 2: Keamanan (Completed) -->
-        <div class="flex items-center">
-          <div class="w-6 h-6 md:w-7 md:h-7 rounded-full bg-[#A8E034] text-gray-900 flex items-center justify-center shadow-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 md:h-4 md:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        <div class="relative z-10 flex flex-col items-center w-16">
+          <div
+            class="flex h-7 w-7 items-center justify-center rounded-full bg-[#A8E034] text-gray-900 shadow-sm"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="3"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 13l4 4L19 7"
+              />
             </svg>
           </div>
+          <span class="mt-2 text-[10px] font-medium text-gray-500 text-center"
+            >Keamanan</span
+          >
         </div>
-
-        <div class="w-4 md:w-8 h-[1px] bg-[#A8E034] mx-1 md:mx-2"></div>
 
         <!-- Step 3: Verifikasi (Completed) -->
-        <div class="flex items-center">
-          <div class="w-6 h-6 md:w-7 md:h-7 rounded-full bg-[#A8E034] text-gray-900 flex items-center justify-center shadow-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 md:h-4 md:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        <div class="relative z-10 flex flex-col items-center w-16">
+          <div
+            class="flex h-7 w-7 items-center justify-center rounded-full bg-[#A8E034] text-gray-900 shadow-sm"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="3"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 13l4 4L19 7"
+              />
             </svg>
           </div>
+          <span class="mt-2 text-[10px] font-medium text-gray-500 text-center"
+            >Verifikasi</span
+          >
         </div>
 
-        <div class="w-4 md:w-8 h-[1px] bg-[#A8E034] mx-1 md:mx-2"></div>
-
         <!-- Step 4: Selesai (Active) -->
-        <div class="flex items-center">
-          <div class="w-6 h-6 md:w-7 md:h-7 rounded-full bg-[#A8E034] text-gray-900 font-bold flex items-center justify-center text-[10px] md:text-xs shadow-sm shadow-[#A8E034]/20">
+        <div class="relative z-10 flex flex-col items-center w-16">
+          <div
+            class="flex h-7 w-7 items-center justify-center rounded-full bg-[#A8E034] text-xs font-bold text-gray-900 shadow-sm shadow-[#A8E034]/20"
+          >
             4
           </div>
-          <span class="text-[10px] md:text-xs font-semibold text-gray-900 ml-1.5 md:ml-2">Selesai</span>
+          <span class="mt-2 text-[10px] font-semibold text-gray-900 text-center"
+            >Selesai</span
+          >
         </div>
       </div>
 
       <!-- Success Screen -->
-      <div class="space-y-6 text-center py-4">
+      <div class="space-y-6 py-4 text-center flex-grow flex flex-col justify-center">
         <!-- Success Graphic -->
         <div class="flex justify-center">
-          <div class="w-20 h-20 bg-[#A8E034]/15 rounded-full flex items-center justify-center text-[#A8E034] animate-bounce">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-[#8ec823]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          <div
+            class="flex h-20 w-20 animate-bounce items-center justify-center rounded-full bg-[#A8E034]/15 text-[#A8E034]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 text-[#8ec823]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="3"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 13l4 4L19 7"
+              />
             </svg>
           </div>
         </div>
 
         <!-- Success Text -->
         <div>
-          <h2 class="text-xl md:text-2xl font-bold text-gray-900">Pendaftaran Berhasil!</h2>
-          <p class="text-xs md:text-sm text-gray-500 mt-3 max-w-[400px] mx-auto leading-relaxed">
-            Selamat! Akun SnapCash Anda telah sukses terdaftar dan terverifikasi. Sekarang Anda dapat mengakses layanan pembayaran digital terlindungi end-to-end.
+          <h2 class="text-xl font-bold text-gray-900 md:text-2xl">
+            Pendaftaran Berhasil!
+          </h2>
+          <p
+            class="mx-auto mt-3 max-w-[400px] text-xs leading-relaxed text-gray-500 md:text-sm"
+          >
+            Selamat! Akun SnapCash Anda telah sukses terdaftar dan
+            terverifikasi. Sekarang Anda dapat mengakses layanan pembayaran
+            digital terlindungi end-to-end.
           </p>
         </div>
 
         <!-- Premium Info Block -->
-        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100 text-left max-w-[400px] mx-auto space-y-2">
+        <div
+          class="mx-auto max-w-[400px] space-y-2 rounded-2xl border border-gray-100 bg-gray-50 p-4 text-left"
+        >
           <div class="flex justify-between text-xs text-gray-500">
             <span>Status Akun:</span>
             <span class="font-semibold text-gray-700">Terverifikasi</span>
           </div>
           <div class="flex justify-between text-xs text-gray-500">
             <span>Tingkat Keamanan:</span>
-            <span class="font-semibold text-green-600 flex items-center gap-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M2.166 4.9L10 1.154l7.834 3.746a1 1 0 01.597.908v5.526a8 8 0 01-4.832 7.375L10 20l-3.599-1.291A8 8 0 012 11.234V5.808a1 1 0 01.166-.908zM10 3.324L4 6.195v4.54a6 6 0 003.535 5.51L10 17.382l2.465-1.137A6 6 0 0016 10.735v-4.54l-6-2.87z" clip-rule="evenodd" />
+            <span class="flex items-center gap-1 font-semibold text-green-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-3 w-3"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2.166 4.9L10 1.154l7.834 3.746a1 1 0 01.597.908v5.526a8 8 0 01-4.832 7.375L10 20l-3.599-1.291A8 8 0 012 11.234V5.808a1 1 0 01.166-.908zM10 3.324L4 6.195v4.54a6 6 0 003.535 5.51L10 17.382l2.465-1.137A6 6 0 0016 10.735v-4.54l-6-2.87z"
+                  clip-rule="evenodd"
+                />
               </svg>
               Sangat Aman
             </span>
@@ -95,11 +183,22 @@
         <!-- Button Masuk Dashboard -->
         <a
           href="../index.html"
-          class="inline-flex w-full max-w-[400px] bg-gray-900 hover:bg-gray-800 text-white font-bold py-3.5 px-4 rounded-xl items-center justify-center gap-2 transition-colors shadow-md shadow-gray-900/10 focus:outline-none mt-4"
+          class="mt-4 inline-flex w-full max-w-[400px] items-center justify-center gap-2 rounded-xl bg-gray-900 px-4 py-3.5 font-bold text-white shadow-md shadow-gray-900/10 transition-colors hover:bg-gray-800 focus:outline-none"
         >
           <span>Masuk ke Dashboard</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
+            />
           </svg>
         </a>
       </div>
