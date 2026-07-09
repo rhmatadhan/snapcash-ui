@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tarik Saldo - SnapCash</title>
+    <!-- Load Tailwind CSS Compiled stylesheet -->
+    <link rel="stylesheet" href="../dist/css/style.css" />
+    <!-- Load Google Fonts & Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="min-h-screen bg-surface-container-low pb-safe-area-bottom font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"
+  >
+    <div
+      class="relative mx-auto flex min-h-screen w-full max-w-md flex-col overflow-hidden bg-surface-container-lowest sm:my-8 sm:rounded-3xl sm:shadow-lg"
+    >
+      <!-- TopAppBar -->
+      <header
+        class="h-navbar-height sticky top-0 z-50 flex w-full items-center border-b border-subtle bg-surface px-gutter no-shadows flat dark:border-outline-variant dark:bg-on-primary"
+      >
+        <a
+          href="index.html"
+          aria-label="Go back"
+          class="hover:bg-surface-container-low mr-4 flex h-10 w-10 items-center justify-center rounded-full text-primary transition-colors active:scale-95 transition-transform dark:text-inverse-primary"
+        >
+          <span class="material-symbols-outlined">arrow_back</span>
+        </a>
+        <h1
+          class="font-headline-lg text-headline-lg text-primary text-headline-md-mobile dark:text-on-primary-fixed md:text-headline-md"
+        >
+          Tarik Saldo
+        </h1>
+      </header>
+
+      <main class="flex-1 overflow-y-auto">
+        <!-- Content Container -->
+        <div class="p-gutter space-y-section-gap">
+          <!-- Balance Banner -->
+          <section
+            class="bg-primary-container relative overflow-hidden rounded-2xl p-card-padding shadow-lg"
+          >
+            <div
+              class="bg-secondary/10 absolute -right-10 -top-10 h-32 w-32 rounded-full blur-2xl"
+            ></div>
+            <div class="relative z-10 flex justify-between items-start">
+              <div>
+                <p
+                  class="font-label-md text-label-md mb-1 text-on-primary-container"
+                >
+                  Saldo Aktif Kamu
+                </p>
+                <h2
+                  class="font-headline-xl text-headline-xl-mobile text-on-primary"
+                >
+                  Rp 12.450.000
+                </h2>
+              </div>
+              <div
+                class="border-secondary-fixed text-secondary-fixed bg-secondary-fixed/20 flex cursor-pointer items-center gap-1 rounded-full border px-3 py-1 font-label-sm text-label-sm transition-colors hover:bg-secondary-fixed/30"
+              >
+                <span class="material-symbols-outlined text-[14px]">bolt</span>
+                Max Tarik
+              </div>
+            </div>
+          </section>
+
+          <!-- Withdrawal Methods -->
+          <section>
+            <h3
+              class="font-headline-md text-headline-md mb-4 text-on-surface"
+            >
+              Metode Penarikan
+            </h3>
+            <div class="space-y-3">
+              <!-- Option 1: Selected -->
+              <label class="group relative block cursor-pointer">
+                <input
+                  checked=""
+                  class="peer sr-only"
+                  name="withdrawal_method"
+                  type="radio"
+                  value="bank"
+                />
+                <div
+                  class="bg-surface-container-lowest flex items-center gap-4 rounded-xl border-2 border-secondary-fixed p-4 shadow-sm transition-all"
+                >
+                  <div
+                    class="bg-surface-container flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-primary"
+                  >
+                    <span class="material-symbols-outlined"
+                      >account_balance</span
+                    >
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-headline-md text-headline-md text-on-surface">
+                      Transfer ke Bank
+                    </p>
+                    <p class="font-body-sm text-body-sm mt-0.5 text-text-muted">
+                      BCA •••• 4589 a.n Tarik Saldo
+                    </p>
+                  </div>
+                  <div
+                    class="bg-secondary-fixed border-secondary-fixed flex h-6 w-6 items-center justify-center rounded-full border-2 transition-opacity peer-checked:opacity-100"
+                  >
+                    <span
+                      class="material-symbols-outlined text-on-secondary-fixed text-[16px]"
+                      data-weight="fill"
+                      >check</span
+                    >
+                  </div>
+                </div>
+              </label>
+              <!-- Option 2: Unselected -->
+              <label class="group relative block cursor-pointer">
+                <input
+                  class="peer sr-only"
+                  name="withdrawal_method"
+                  type="radio"
+                  value="atm"
+                />
+                <div
+                  class="bg-surface hover:bg-surface-container rounded-xl border-2 border-transparent p-4 transition-all"
+                >
+                  <div class="flex items-center gap-4">
+                    <div
+                      class="bg-surface-container-highest flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-on-surface-variant"
+                    >
+                      <span class="material-symbols-outlined"
+                        >local_convenience_store</span
+                      >
+                    </div>
+                    <div class="flex-1">
+                      <p
+                        class="font-body-md text-body-md text-on-surface font-medium"
+                      >
+                        Tarik di ATM / Minimarket
+                      </p>
+                      <p class="font-body-sm text-body-sm mt-0.5 text-text-muted">
+                        Indomaret, Alfamart, ATM Bersama
+                      </p>
+                    </div>
+                    <div
+                      class="border-outline-variant flex h-6 w-6 items-center justify-center rounded-full border-2 transition-colors"
+                    ></div>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </section>
+
+          <!-- Amount Section -->
+          <section>
+            <h3
+              class="font-headline-md text-headline-md mb-4 text-on-surface"
+            >
+              Nominal Penarikan
+            </h3>
+            <div class="relative mb-6">
+              <span
+                class="font-headline-lg text-headline-lg text-primary absolute left-4 top-1/2 -translate-y-1/2"
+                >Rp</span
+              >
+              <input
+                aria-label="Amount to withdraw"
+                class="border-surface-variant bg-surface-container-lowest text-primary font-headline-xl text-headline-xl-mobile h-16 w-full rounded-2xl border pl-14 pr-4 outline-none transition-shadow focus:border-transparent focus:ring-2 focus:ring-primary"
+                inputmode="numeric"
+                type="text"
+                value="300.000"
+              />
+            </div>
+            <!-- Quick Chips -->
+            <div class="grid grid-cols-4 gap-2">
+              <button
+                class="border-surface-variant bg-surface text-on-surface-variant hover:bg-surface-container rounded-lg border px-1 py-2 text-center font-label-md text-label-md transition-colors"
+              >
+                100k
+              </button>
+              <button
+                class="border-surface-variant bg-surface text-on-surface-variant hover:bg-surface-container rounded-lg border px-1 py-2 text-center font-label-md text-label-md transition-colors"
+              >
+                200k
+              </button>
+              <button
+                class="bg-secondary-fixed/10 border-secondary-fixed text-primary rounded-lg border-2 px-1 py-2 text-center font-label-md text-label-md font-bold transition-colors"
+              >
+                300k
+              </button>
+              <button
+                class="border-surface-variant bg-surface text-on-surface-variant hover:bg-surface-container rounded-lg border px-1 py-2 text-center font-label-md text-label-md transition-colors"
+              >
+                500k
+              </button>
+            </div>
+          </section>
+
+          <!-- Summary Receipt -->
+          <section
+            class="bg-surface border-border-subtle rounded-xl border p-4"
+          >
+            <div class="space-y-3">
+              <div
+                class="text-on-surface-variant flex justify-between items-center font-body-sm text-body-sm"
+              >
+                <span>Nominal Tarik</span>
+                <span>Rp 300.000</span>
+              </div>
+              <div
+                class="text-on-surface-variant flex justify-between items-center font-body-sm text-body-sm"
+              >
+                <span>Biaya Admin</span>
+                <span>Rp 2.500</span>
+              </div>
+              <div
+                class="border-border-subtle text-primary flex justify-between items-center border-t pt-3 font-headline-md text-headline-md"
+              >
+                <span>Total Penarikan</span>
+                <span>Rp 302.500</span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <!-- Fixed Bottom Action & Footer -->
+      <div
+        class="p-gutter border-subtle bg-surface-container-lowest border-t"
+      >
+        <button
+          class="bg-secondary-fixed hover:bg-secondary-fixed-dim text-primary font-headline-md text-headline-md mb-4 flex h-14 w-full items-center justify-center gap-2 rounded-xl shadow-sm transition-all active:scale-[0.98]"
+        >
+          Lanjut Tarik Saldo
+          <span class="material-symbols-outlined text-[20px]"
+            >arrow_forward</span
+          >
+        </button>
+        <div
+          class="text-text-muted font-label-sm text-label-sm flex items-center justify-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[14px]">lock</span>
+          <p>Transaksi dilindungi oleh PIN &amp; Enkripsi SnapCash</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
