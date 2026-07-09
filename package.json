@@ -1,12 +1,12 @@
 {
   "name": "snapcash-ui",
   "version": "1.0.0",
-  "description": "",
+  "description": "SnapCash E-Wallet — User Interface",
   "main": "tailwind.config.js",
   "scripts": {
-    "build:css": "tailwindcss -i ./src/input.css -o ./dist/css/style.css --minify",
-    "watch:css": "tailwindcss -i ./src/input.css -o ./dist/css/style.css --watch",
-    "server": "browser-sync start --server '.' --files 'index.html, dist/css/*.css, src/js/*.js'",
+    "build:css": "tailwindcss -i ./src/css/input.css -o ./dist/css/style.css --minify",
+    "watch:css": "tailwindcss -i ./src/css/input.css -o ./dist/css/style.css --watch",
+    "server": "browser-sync start --server '.' --startPath 'public' --files 'public/**/*.html, dist/css/*.css, src/js/*.js'",
     "dev": "concurrently \"npm run watch:css\" \"npm run server\"",
     "format": "prettier --write \".\" "
   },

@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="theme-color" content="#f3f4f6" />
     <title>Snapcash - Dashboard Utama</title>
     <!-- Load Tailwind CSS Compiled stylesheet -->
-    <link rel="stylesheet" href="./dist/css/style.css" />
+    <link rel="stylesheet" href="../dist/css/style.css" />
     <!-- Load Google Fonts & Material Symbols -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
@@ -17,15 +18,15 @@
     />
   </head>
   <body
-    class="min-h-screen bg-surface pb-safe-area-bottom font-sans text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container"
+    class="min-h-screen bg-surface-container-low pb-safe-area-bottom font-sans text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container"
   >
     <!-- App Container -->
     <main
-      class="relative mx-auto min-h-screen w-full max-w-container-max overflow-hidden bg-surface px-gutter shadow-2xl md:px-0"
+      class="relative mx-auto min-h-screen w-full max-w-container-max overflow-hidden bg-surface-container-low px-gutter shadow-2xl md:px-0"
     >
       <!-- Header -->
       <header
-        class="sticky top-0 z-40 w-full bg-surface pb-2 pt-4 md:px-gutter"
+        class="sticky top-0 z-40 w-full bg-surface-container-low pb-2 pt-4 md:px-gutter"
       >
         <div
           class="mx-auto flex max-w-container-max items-center justify-between"
@@ -358,11 +359,12 @@
             <h3 class="font-headline-lg text-headline-lg text-on-surface">
               Riwayat Terakhir
             </h3>
-            <button
+            <a
+              href="history.html"
               class="font-label-md text-label-md text-primary transition-colors hover:text-primary-fixed-dim"
             >
               Lihat Semua
-            </button>
+            </a>
           </div>
           <div
             class="flex flex-col overflow-hidden rounded-2xl border border-border-subtle bg-surface-container-lowest shadow-sm"
@@ -492,7 +494,8 @@
       class="fixed bottom-0 left-1/2 z-50 flex h-navbar-height w-full max-w-container-max -translate-x-1/2 items-center justify-around rounded-t-3xl border-t border-outline-variant bg-surface-container-lowest/80 px-2 pb-6 pt-2 shadow-lg backdrop-blur-md"
     >
       <!-- Home (Active) -->
-      <button
+      <a
+        href="index.html"
         class="group flex flex-1 flex-col items-center justify-center text-primary transition-all duration-200 ease-in-out after:mt-0.5 after:h-1 after:w-1 after:rounded-full after:bg-secondary-container after:content-[''] active:scale-90"
       >
         <span
@@ -500,9 +503,10 @@
           >home</span
         >
         <span class="font-label-sm text-label-sm">Home</span>
-      </button>
+      </a>
       <!-- History -->
-      <button
+      <a
+        href="history.html"
         class="group flex flex-1 flex-col items-center justify-center text-on-surface-variant transition-all duration-200 ease-in-out active:scale-90"
       >
         <span
@@ -510,7 +514,7 @@
           >receipt_long</span
         >
         <span class="font-label-sm text-label-sm">History</span>
-      </button>
+      </a>
       <div
         class="relative flex h-full flex-1 flex-col items-center justify-end pb-1.5"
       >
@@ -548,29 +552,8 @@
       </button>
     </nav>
 
-    <!-- Interactive script for balance toggle -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const toggleBtn = document.getElementById("toggleBalanceBtn");
-        const balanceText = document.getElementById("balanceText");
-        const toggleIcon = document.getElementById("toggleBalanceIcon");
-        let isVisible = true;
-        const actualBalance = "Rp 12.450.000";
-        const hiddenBalance = "Rp •••••••••";
-
-        if (toggleBtn && balanceText && toggleIcon) {
-          toggleBtn.addEventListener("click", () => {
-            isVisible = !isVisible;
-            if (isVisible) {
-              balanceText.textContent = actualBalance;
-              toggleIcon.textContent = "visibility";
-            } else {
-              balanceText.textContent = hiddenBalance;
-              toggleIcon.textContent = "visibility_off";
-            }
-          });
-        }
-      });
-    </script>
+    <!-- External Scripts -->
+    <script src="../src/js/app.js"></script>
+    <script src="../src/js/dashboard.js"></script>
   </body>
 </html>
