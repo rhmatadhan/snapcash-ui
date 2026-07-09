@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="theme-color" content="#f3f4f6" />
+    <title>Profil Saya - SnapCash</title>
+    <!-- Load Tailwind CSS Compiled stylesheet -->
+    <link rel="stylesheet" href="../dist/css/style.css" />
+    <!-- Load Google Fonts & Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="min-h-screen bg-surface-container-low pb-safe-area-bottom font-sans text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container"
+  >
+    <!-- App Container -->
+    <main
+      class="relative mx-auto min-h-screen w-full max-w-container-max overflow-hidden bg-surface-container-low px-gutter shadow-2xl md:px-0"
+    >
+      <!-- Header -->
+      <header
+        class="sticky top-0 z-40 w-full bg-surface-container-low/95 backdrop-blur-sm pb-2 pt-4 border-b border-outline-variant/30 md:px-gutter"
+      >
+        <div
+          class="mx-auto flex max-w-container-max items-center justify-between"
+        >
+          <div class="flex items-center gap-3">
+            <a
+              href="index.html"
+              class="flex h-10 w-10 items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 text-primary"
+            >
+              <span class="material-symbols-outlined text-[20px] font-bold">arrow_back</span>
+            </a>
+            <h1 class="font-headline-md text-headline-md text-primary font-bold">
+              Profile
+            </h1>
+          </div>
+          <button
+            aria-label="Bantuan"
+            class="flex h-10 w-10 items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 text-primary"
+          >
+            <span class="material-symbols-outlined text-[24px]">help_outline</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <div class="mt-4 flex flex-col gap-6 pb-8 md:px-gutter animate-[slideUp_0.4s_ease-out]">
+        <!-- Hero Card (Identitas User) -->
+        <section
+          class="group relative overflow-hidden rounded-3xl bg-primary-container p-card-padding text-on-primary shadow-lg flex flex-col items-center text-center"
+        >
+          <!-- Decorative subtle gradient blur -->
+          <div
+            class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-white/5 blur-2xl pointer-events-none"
+          ></div>
+
+          <div class="relative mb-4">
+            <img
+              alt="Budi Santoso"
+              class="w-24 h-24 rounded-full border-4 border-surface shadow-md object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1_GQYwOcz0-Ez07nolufFdJOY4Gyf5WipYY-3DBmSo7g540wNa0aLoeRPcxEvvBW4Wrw-N1l5HJ3wNTE9is9-9-oRka35uZuJHhC3jzlmpV7gbTcRBiWoCb1DFtSHtIuz-sxKCX45Q1PKwB2VSvEdQzQfU68oQmTUiDn5yy3pL3EhMh-_h2p1jVZjP1OURd6pqtat26-N5Sz3TN26EdhG1COqPfv2fhLtMn9aqH5benYRqUQ6yQkv"
+            />
+            <!-- Status online / verified dot indicator -->
+            <div class="absolute bottom-0 right-0 bg-[#b2f746] w-6 h-6 rounded-full border-4 border-primary-container flex items-center justify-center shadow-sm">
+            </div>
+          </div>
+
+          <h2 class="font-headline-lg text-headline-lg text-on-primary mb-1">Budi Santoso</h2>
+          <p class="font-body-md text-body-md text-on-primary-container opacity-85 mb-4">budi.santoso@email.com</p>
+          
+          <button
+            id="copyIdBtn"
+            class="flex items-center gap-2 bg-white/10 hover:bg-white/20 transition-all px-4 py-2 rounded-full border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 active:scale-95"
+          >
+            <span class="font-label-md text-label-md tracking-widest text-on-primary">ID: DOMPI-8829103</span>
+            <span class="material-symbols-outlined text-[18px]">content_copy</span>
+          </button>
+        </section>
+
+        <!-- Menu Groups -->
+        <div class="space-y-6">
+          <!-- Group 1: Akun & Keamanan -->
+          <section class="flex flex-col gap-2">
+            <h3 class="font-label-md text-label-md text-text-muted uppercase pl-2 tracking-wider">
+              Akun & Keamanan
+            </h3>
+            <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-border-subtle overflow-hidden">
+              <!-- Item 1: Pengaturan Akun -->
+              <button
+                class="w-full flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors focus:outline-none group active:bg-surface-container text-left"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary transition-colors group-hover:bg-primary-container group-hover:text-white">
+                    <span class="material-symbols-outlined text-[22px]">manage_accounts</span>
+                  </div>
+                  <span class="font-body-md text-body-md text-on-surface font-medium">Pengaturan Akun</span>
+                </div>
+                <span class="material-symbols-outlined text-outline text-[20px] transition-transform group-hover:translate-x-0.5">chevron_right</span>
+              </button>
+              
+              <div class="h-px bg-border-subtle mx-4"></div>
+
+              <!-- Item 2: Keamanan -->
+              <button
+                class="w-full flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors focus:outline-none group active:bg-surface-container text-left"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary transition-colors group-hover:bg-primary-container group-hover:text-white">
+                    <span class="material-symbols-outlined text-[22px]">security</span>
+                  </div>
+                  <span class="font-body-md text-body-md text-on-surface font-medium">Keamanan (PIN, Password & Biometrik)</span>
+                </div>
+                <span class="material-symbols-outlined text-outline text-[20px] transition-transform group-hover:translate-x-0.5">chevron_right</span>
+              </button>
+
+              <div class="h-px bg-border-subtle mx-4"></div>
+
+              <!-- Item 3: Verifikasi Identitas -->
+              <button
+                class="w-full flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors focus:outline-none group active:bg-surface-container text-left"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary transition-colors group-hover:bg-primary-container group-hover:text-white">
+                    <span class="material-symbols-outlined text-[22px]">badge</span>
+                  </div>
+                  <span class="font-body-md text-body-md text-on-surface font-medium">Verifikasi Identitas (KYC KTP)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="bg-[#b2f746]/20 text-[#496f00] px-3 py-1 rounded-full font-label-sm text-[10px] uppercase font-bold tracking-wider">
+                    Terverifikasi
+                  </span>
+                  <span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+                </div>
+              </button>
+            </div>
+          </section>
+
+          <!-- Group 2: Transaksi & Pembayaran -->
+          <section class="flex flex-col gap-2">
+            <h3 class="font-label-md text-label-md text-text-muted uppercase pl-2 tracking-wider">
+              Transaksi & Pembayaran
+            </h3>
+            <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-border-subtle overflow-hidden">
+              <!-- Item 1: Rekening Bank -->
+              <button
+                class="w-full flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors focus:outline-none group active:bg-surface-container text-left"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary transition-colors group-hover:bg-primary-container group-hover:text-white">
+                    <span class="material-symbols-outlined text-[22px]">account_balance</span>
+                  </div>
+                  <span class="font-body-md text-body-md text-on-surface font-medium">Rekening Bank & Kartu Terhubung</span>
+                </div>
+                <span class="material-symbols-outlined text-outline text-[20px] transition-transform group-hover:translate-x-0.5">chevron_right</span>
+              </button>
+
+              <div class="h-px bg-border-subtle mx-4"></div>
+
+              <!-- Item 2: Limit & Aturan -->
+              <button
+                class="w-full flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors focus:outline-none group active:bg-surface-container text-left"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary transition-colors group-hover:bg-primary-container group-hover:text-white">
+                    <span class="material-symbols-outlined text-[22px]">tune</span>
+                  </div>
+                  <span class="font-body-md text-body-md text-on-surface font-medium">Limit & Aturan Transaksi</span>
+                </div>
+                <span class="material-symbols-outlined text-outline text-[20px] transition-transform group-hover:translate-x-0.5">chevron_right</span>
+              </button>
+
+              <div class="h-px bg-border-subtle mx-4"></div>
+
+              <!-- Item 3: Kode Promo -->
+              <button
+                class="w-full flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors focus:outline-none group active:bg-surface-container text-left"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary transition-colors group-hover:bg-primary-container group-hover:text-white">
+                    <span class="material-symbols-outlined text-[22px]">sell</span>
+                  </div>
+                  <span class="font-body-md text-body-md text-on-surface font-medium">Kode Promo & Voucher Saya</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="bg-primary-container text-[#b2f746] px-3 py-1 rounded-full font-label-sm text-[10px] uppercase font-bold tracking-wider">
+                    3 Aktif
+                  </span>
+                  <span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+                </div>
+              </button>
+            </div>
+          </section>
+
+          <!-- Group 3: Lainnya -->
+          <section class="flex flex-col gap-2">
+            <h3 class="font-label-md text-label-md text-text-muted uppercase pl-2 tracking-wider">
+              Lainnya
+            </h3>
+            <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-border-subtle overflow-hidden">
+              <!-- Item 1: Pusat Bantuan -->
+              <button
+                class="w-full flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors focus:outline-none group active:bg-surface-container text-left"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary transition-colors group-hover:bg-primary-container group-hover:text-white">
+                    <span class="material-symbols-outlined text-[22px]">support_agent</span>
+                  </div>
+                  <span class="font-body-md text-body-md text-on-surface font-medium">Pusat Bantuan & CS 24/7</span>
+                </div>
+                <span class="material-symbols-outlined text-outline text-[20px] transition-transform group-hover:translate-x-0.5">chevron_right</span>
+              </button>
+
+              <div class="h-px bg-border-subtle mx-4"></div>
+
+              <!-- Item 2: Syarat & Ketentuan -->
+              <button
+                class="w-full flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors focus:outline-none group active:bg-surface-container text-left"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary transition-colors group-hover:bg-primary-container group-hover:text-white">
+                    <span class="material-symbols-outlined text-[22px]">description</span>
+                  </div>
+                  <span class="font-body-md text-body-md text-on-surface font-medium">Syarat, Ketentuan & Privasi</span>
+                </div>
+                <span class="material-symbols-outlined text-outline text-[20px] transition-transform group-hover:translate-x-0.5">chevron_right</span>
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <!-- Logout & Version -->
+        <div class="mt-8 flex flex-col items-center gap-4">
+          <button id="logoutBtn" class="w-full py-4 rounded-xl border border-error-red text-error-red font-headline-md text-headline-md font-bold uppercase tracking-wider hover:bg-error-red/5 active:bg-error-red/10 active:scale-[0.99] transition-all focus:outline-none focus:ring-2 focus:ring-error-red">
+            Keluar Dari Akun
+          </button>
+          <p class="font-body-sm text-body-sm text-text-muted">Versi Aplikasi v1.0.0 (Laravel 11 Ready)</p>
+        </div>
+
+        <!-- Bottom spacing for scroll buffer -->
+        <div class="h-8"></div>
+      </div>
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav
+      class="fixed bottom-0 left-1/2 z-50 flex h-navbar-height w-full max-w-container-max -translate-x-1/2 items-center justify-around rounded-t-3xl border-t border-outline-variant bg-surface-container-lowest/80 px-2 pb-6 pt-2 shadow-lg backdrop-blur-md"
+    >
+      <!-- Home -->
+      <a
+        href="index.html"
+        class="group flex flex-1 flex-col items-center justify-center text-on-surface-variant transition-all duration-200 ease-in-out active:scale-90"
+      >
+        <span
+          class="material-symbols-outlined rounded-full p-1 transition-colors group-hover:bg-surface-container-highest/20"
+          >home</span
+        >
+        <span class="font-label-sm text-label-sm">Home</span>
+      </a>
+      <!-- History -->
+      <a
+        href="history.html"
+        class="group flex flex-1 flex-col items-center justify-center text-on-surface-variant transition-all duration-200 ease-in-out active:scale-90"
+      >
+        <span
+          class="material-symbols-outlined rounded-full p-1 transition-colors group-hover:bg-surface-container-highest/20"
+          >receipt_long</span
+        >
+        <span class="font-label-sm text-label-sm">History</span>
+      </a>
+      <!-- Scan QRIS -->
+      <div
+        class="relative flex h-full flex-1 flex-col items-center justify-end pb-1.5"
+      >
+        <button
+          class="absolute -top-10 left-1/2 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full border-4 border-surface bg-secondary-container shadow-[0_8px_16px_rgba(178,247,70,0.35)] transition-transform hover:bg-secondary-fixed active:scale-95"
+        >
+          <span
+            class="material-symbols-outlined fill text-[28px] text-on-secondary-container"
+            >qr_code_scanner</span
+          >
+        </button>
+        <span class="font-label-sm text-label-sm text-on-surface-variant"
+          >Scan</span
+        >
+      </div>
+      <!-- Inbox -->
+      <button
+        class="group flex flex-1 flex-col items-center justify-center text-on-surface-variant transition-all duration-200 ease-in-out active:scale-90"
+      >
+        <span
+          class="material-symbols-outlined rounded-full p-1 transition-colors group-hover:bg-surface-container-highest/20"
+          >mail</span
+        >
+        <span class="font-label-sm text-label-sm">Inbox</span>
+      </button>
+      <!-- Profile (Active) -->
+      <a
+        href="profile.html"
+        class="group flex flex-1 flex-col items-center justify-center text-primary transition-all duration-200 ease-in-out after:mt-0.5 after:h-1 after:w-1 after:rounded-full after:bg-secondary-container after:content-[''] active:scale-90"
+      >
+        <span
+          class="material-symbols-outlined fill rounded-full p-1 transition-colors group-hover:bg-surface-container-highest/20"
+          >person</span
+        >
+        <span class="font-label-sm text-label-sm">Profile</span>
+      </a>
+    </nav>
+
+    <!-- Logout Confirmation Modal -->
+    <div
+      id="logoutModal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0a1422]/60 backdrop-blur-sm hidden"
+    >
+      <div
+        class="bg-white rounded-3xl p-6 max-w-[340px] w-full shadow-2xl border border-border-subtle flex flex-col items-center text-center animate-[scaleIn_0.2s_ease-out]"
+      >
+        <div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center text-error mb-4">
+          <span class="material-symbols-outlined text-[26px]">logout</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-primary font-bold mb-2">Keluar Akun?</h3>
+        <p class="font-body-sm text-body-sm text-text-muted mb-6">
+          Apakah Anda yakin ingin keluar dari akun SnapCash Anda?
+        </p>
+        <div class="flex w-full gap-3">
+          <button
+            id="cancelLogoutBtn"
+            class="flex-1 py-3 rounded-xl border border-outline-variant text-on-surface font-headline-md text-headline-md hover:bg-surface-container-low transition-colors"
+          >
+            Batal
+          </button>
+          <button
+            id="confirmLogoutBtn"
+            class="flex-1 py-3 rounded-xl bg-error text-white font-headline-md text-headline-md hover:bg-error/95 transition-colors"
+          >
+            Keluar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- External Scripts -->
+    <script src="../src/js/app.js"></script>
+    <script src="../src/js/profile.js"></script>
+  </body>
+</html>
