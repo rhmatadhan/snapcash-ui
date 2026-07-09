@@ -36,10 +36,11 @@
               class="relative h-10 w-10 overflow-hidden rounded-full border-2 border-surface-container-highest"
             >
               <img
+                id="user-avatar-display"
                 alt="Profile Picture"
                 class="h-full w-full object-cover"
                 data-alt="A close-up, professional portrait of an Indonesian man in his late 20s, smiling warmly. The lighting is soft and natural, emphasizing approachability and trust. The background is a slightly blurred modern office space. The overall aesthetic is clean, bright, and suitable for a high-trust fintech application's user profile avatar."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYbR7QTd61WC__INH8fxcz_3eORlHXJP6arl7TureSCDo5o_wZhP9-3QmSln94v5Bu60Dv8S5sLMFefAelt9KtvWdQrtcFiE4wWUfzpE8Vhf_lNBRKjBit5jU9qKdmX5uhcbRCAKjL8LpXIkPYrovZ3mvRR27KyvbQjelNb2Pd2txSjWrX6VyUwfHclh3o-l1KN-yVyj7JA-GPpI_ycAtLcfAkcLWsfUMfMRH_fWdWqtu4v2KCcRAC"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRiAcATbek4T76G3wq7UyM8Ubj2rtgI4G7LbkwSc_V5LksqFgTgn8IjUzojKRaeosKZtsTxqWPF2Z25dJbNYJvehQaONCZaHHFTGwZhlwtlkRo4E1LY6WD6Mx77KyOCQ8pYb1bnkgffQGXjM95RoHxmTd9RULHj52xjxxCq18KjA-sv9wUKPpXUu_jEIQpQNlt4lLcVNPR474adqz1KYHabhXlEs8HRHaygrKHrlc0AochXIwYYLfy"
               />
             </div>
             <div class="flex flex-col">
@@ -48,6 +49,7 @@
               >
               <div class="flex items-center gap-1">
                 <span
+                  id="user-name-display"
                   class="max-w-[150px] truncate font-headline-md text-headline-md text-primary"
                   >Abay</span
                 >
@@ -556,5 +558,20 @@
     <!-- External Scripts -->
     <script src="../src/js/app.js"></script>
     <script src="../src/js/dashboard.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const defaultName = "Budi Santoso";
+        const defaultAvatar = "https://lh3.googleusercontent.com/aida-public/AB6AXuBRiAcATbek4T76G3wq7UyM8Ubj2rtgI4G7LbkwSc_V5LksqFgTgn8IjUzojKRaeosKZtsTxqWPF2Z25dJbNYJvehQaONCZaHHFTGwZhlwtlkRo4E1LY6WD6Mx77KyOCQ8pYb1bnkgffQGXjM95RoHxmTd9RULHj52xjxxCq18KjA-sv9wUKPpXUu_jEIQpQNlt4lLcVNPR474adqz1KYHabhXlEs8HRHaygrKHrlc0AochXIwYYLfy";
+
+        const currentName = localStorage.getItem("userName") || defaultName;
+        const currentAvatar = localStorage.getItem("userAvatar") || defaultAvatar;
+
+        const nameEl = document.getElementById("user-name-display");
+        const avatarEl = document.getElementById("user-avatar-display");
+
+        if (nameEl) nameEl.textContent = currentName;
+        if (avatarEl) avatarEl.src = currentAvatar;
+      });
+    </script>
   </body>
 </html>
