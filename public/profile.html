@@ -357,7 +357,13 @@
         const defaultAvatar = "https://lh3.googleusercontent.com/aida-public/AB6AXuBRiAcATbek4T76G3wq7UyM8Ubj2rtgI4G7LbkwSc_V5LksqFgTgn8IjUzojKRaeosKZtsTxqWPF2Z25dJbNYJvehQaONCZaHHFTGwZhlwtlkRo4E1LY6WD6Mx77KyOCQ8pYb1bnkgffQGXjM95RoHxmTd9RULHj52xjxxCq18KjA-sv9wUKPpXUu_jEIQpQNlt4lLcVNPR474adqz1KYHabhXlEs8HRHaygrKHrlc0AochXIwYYLfy";
 
         const currentName = localStorage.getItem("userName") || defaultName;
-        const currentAvatar = localStorage.getItem("userAvatar") || defaultAvatar;
+        let currentAvatar = localStorage.getItem("userAvatar") || defaultAvatar;
+
+        // Self-healing check for broken localstorage avatar URL
+        if (currentAvatar.includes("AB6AXuBRieAc")) {
+          currentAvatar = defaultAvatar;
+          localStorage.setItem("userAvatar", defaultAvatar);
+        }
 
         const nameEl = document.getElementById("profile-name-display");
         const avatarEl = document.getElementById("profile-avatar-display");

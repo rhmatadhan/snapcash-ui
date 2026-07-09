@@ -110,13 +110,39 @@
             </button>
         </main>
     </div>
+
+    <!-- Modern Success Modal -->
+    <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-surface-container-lowest w-full max-w-sm rounded-2xl p-6 shadow-lg border border-border-subtle flex flex-col items-center text-center transform scale-95 transition-transform duration-300">
+            <!-- Icon Success (Green check circle) -->
+            <div class="w-16 h-16 rounded-full bg-success-green/10 text-success-green flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            </div>
+            <!-- Title & Description -->
+            <h3 class="font-headline-md text-headline-md text-primary mb-2">Perubahan Disimpan</h3>
+            <p class="font-body-sm text-body-sm text-text-muted mb-6">
+                Pengaturan akun Anda telah berhasil diperbarui dan disimpan.
+            </p>
+            <!-- Action Button -->
+            <button id="modalOkBtn" class="w-full bg-secondary-container text-primary-container font-headline-md text-headline-md py-3 rounded-xl shadow-sm hover:opacity-90 active:scale-[0.98] transition-all duration-200">
+                OK
+            </button>
+        </div>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const defaultName = "Budi Santoso";
             const defaultAvatar = "https://lh3.googleusercontent.com/aida-public/AB6AXuBRiAcATbek4T76G3wq7UyM8Ubj2rtgI4G7LbkwSc_V5LksqFgTgn8IjUzojKRaeosKZtsTxqWPF2Z25dJbNYJvehQaONCZaHHFTGwZhlwtlkRo4E1LY6WD6Mx77KyOCQ8pYb1bnkgffQGXjM95RoHxmTd9RULHj52xjxxCq18KjA-sv9wUKPpXUu_jEIQpQNlt4lLcVNPR474adqz1KYHabhXlEs8HRHaygrKHrlc0AochXIwYYLfy";
 
             const currentName = localStorage.getItem("userName") || defaultName;
-            const currentAvatar = localStorage.getItem("userAvatar") || defaultAvatar;
+            let currentAvatar = localStorage.getItem("userAvatar") || defaultAvatar;
+            
+            // Self-healing check for broken localstorage avatar URL
+            if (currentAvatar.includes("AB6AXuBRieAc")) {
+                currentAvatar = defaultAvatar;
+                localStorage.setItem("userAvatar", defaultAvatar);
+            }
 
             const nameInput = document.getElementById("fullName");
             const avatarImg = document.getElementById("settings-avatar-display");
@@ -143,10 +169,30 @@
                     const newName = nameInput.value.trim();
                     if (newName !== "") {
                         localStorage.setItem("userName", newName);
-                        alert("Pengaturan akun berhasil disimpan!");
+                        
+                        // Show Success Modal
+                        const modal = document.getElementById("successModal");
+                        const modalContent = modal.querySelector("div");
+                        modal.classList.remove("hidden");
+                        // Trigger reflow to enable transition
+                        modal.offsetHeight;
+                        modal.classList.remove("opacity-0");
+                        modalContent.classList.remove("scale-95");
                     } else {
-                        alert("Nama lengkap tidak boleh kosong.");
+                        // Visual invalid feedback on name input
+                        nameInput.classList.add("border-error-red", "focus:ring-error-red");
+                        setTimeout(() => {
+                            nameInput.classList.remove("border-error-red", "focus:ring-error-red");
+                        }, 3000);
                     }
+                });
+            }
+
+            // Modal OK Button click functionality
+            const modalOkBtn = document.getElementById("modalOkBtn");
+            if (modalOkBtn) {
+                modalOkBtn.addEventListener("click", () => {
+                    window.location.href = "profile.html";
                 });
             }
         });
