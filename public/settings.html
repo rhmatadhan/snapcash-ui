@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="theme-color" content="#f3f4f6" />
+    <title>Pengaturan Akun - Dompiku</title>
+    <!-- Load Tailwind CSS Compiled stylesheet -->
+    <link rel="stylesheet" href="../dist/css/style.css" />
+    <!-- Load Google Fonts & Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body class="bg-background min-h-screen text-on-background font-body-md antialiased pb-safe-area-bottom md:pb-0 flex flex-col items-center">
+    <div class="w-full max-w-container-max flex flex-col min-h-screen relative">
+        <!-- TopAppBar -->
+        <header class="w-full sticky top-0 z-40 bg-surface dark:bg-on-background flat no shadows flex items-center justify-between px-gutter h-navbar-height">
+            <a href="profile.html" class="text-primary dark:text-primary-fixed hover:opacity-80 transition-all duration-200 active:scale-95 flex items-center justify-center p-2 -ml-2 rounded-full">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+            </a>
+            <h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed flex-1 text-center pr-[40px]">
+                Pengaturan Akun
+            </h1>
+        </header>
+        <!-- Main Content -->
+        <main class="flex-1 px-gutter py-section-gap flex flex-col gap-section-gap">
+            <!-- Avatar Section -->
+            <section class="flex flex-col items-center gap-4">
+                <div class="relative">
+                    <div class="w-24 h-24 rounded-full overflow-hidden shadow-sm border border-border-subtle bg-surface-container-high">
+                        <img id="settings-avatar-display" alt="Profile Avatar" class="w-full h-full object-cover" data-alt="A close up, highly detailed professional portrait photo of an Indonesian man in his late 20s, wearing a smart casual outfit. The lighting is soft and flattering, creating a premium light-mode fintech aesthetic. The background is a subtle, out-of-focus light gray gradient. The image conveys trust and modernity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRiAcATbek4T76G3wq7UyM8Ubj2rtgI4G7LbkwSc_V5LksqFgTgn8IjUzojKRaeosKZtsTxqWPF2Z25dJbNYJvehQaONCZaHHFTGwZhlwtlkRo4E1LY6WD6Mx77KyOCQ8pYb1bnkgffQGXjM95RoHxmTd9RULHj52xjxxCq18KjA-sv9wUKPpXUu_jEIQpQNlt4lLcVNPR474adqz1KYHabhXlEs8HRHaygrKHrlc0AochXIwYYLfy"/>
+                    </div>
+                </div>
+                <button id="change-avatar-btn" class="font-label-md text-label-md text-secondary-container bg-primary-container px-4 py-2 rounded-full flex items-center gap-2 hover:opacity-90 transition-opacity">
+                    <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 0;">photo_camera</span>
+                    Ubah Foto Profil
+                </button>
+            </section>
+            <!-- Form Card -->
+            <section class="bg-surface-container-lowest rounded-xl shadow-sm p-card-padding flex flex-col gap-6">
+                <!-- Nama Lengkap -->
+                <div class="flex flex-col gap-2">
+                    <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider" for="fullName">Nama Lengkap</label>
+                    <input class="w-full bg-surface-container-lowest border border-surface-variant rounded-lg px-4 py-3 font-body-lg text-body-lg text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all" id="fullName" type="text" value="Budi Santoso"/>
+                </div>
+                <!-- Alamat Email -->
+                <div class="flex flex-col gap-2">
+                    <div class="flex justify-between items-center">
+                        <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider" for="email">Alamat Email</label>
+                        <span class="bg-success-green/10 text-success-green px-2 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Terverifikasi
+                        </span>
+                    </div>
+                    <input class="w-full bg-surface-container-low border border-surface-variant rounded-lg px-4 py-3 font-body-lg text-body-lg text-text-muted cursor-not-allowed" disabled="" id="email" type="email" value="budi.santoso@example.com"/>
+                </div>
+                <!-- Nomor WhatsApp / HP -->
+                <div class="flex flex-col gap-2">
+                    <div class="flex justify-between items-center">
+                        <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider" for="phone">Nomor WhatsApp / HP</label>
+                        <span class="bg-success-green/10 text-success-green px-2 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Terverifikasi
+                        </span>
+                    </div>
+                    <input class="w-full bg-surface-container-lowest border border-surface-variant rounded-lg px-4 py-3 font-body-lg text-body-lg text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all" id="phone" type="tel" value="+62 812-3456-7890"/>
+                </div>
+            </section>
+            <!-- Preferences Section -->
+            <section class="bg-surface-container-lowest rounded-xl shadow-sm p-card-padding flex flex-col gap-6">
+                <!-- Notifikasi Transaksi -->
+                <div class="flex justify-between items-center">
+                    <div class="flex flex-col">
+                        <span class="font-headline-md text-headline-md text-on-surface">Notifikasi Transaksi</span>
+                        <span class="font-body-sm text-body-sm text-text-muted">Terima peringatan instan</span>
+                    </div>
+                    <!-- Toggle Switch -->
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input checked="" class="sr-only peer" type="checkbox" value=""/>
+                        <div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary-container"></div>
+                    </label>
+                </div>
+                <div class="h-[1px] bg-border-subtle w-full"></div>
+                <!-- Bahasa Aplikasi -->
+                <div class="flex flex-col gap-2">
+                    <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider" for="language">Bahasa Aplikasi</label>
+                    <div class="relative">
+                        <select class="w-full bg-surface-container-lowest border border-surface-variant rounded-lg px-4 py-3 font-body-lg text-body-lg text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent appearance-none" id="language">
+                            <option selected="" value="id">Indonesia</option>
+                            <option value="en">English</option>
+                        </select>
+                        <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none" style="font-variation-settings: 'FILL' 0;">expand_more</span>
+                    </div>
+                </div>
+            </section>
+            <!-- Actions -->
+            <button id="save-settings-btn" class="w-full bg-secondary-container text-primary-container font-headline-md text-headline-md py-4 rounded-xl shadow-sm hover:opacity-90 active:scale-[0.98] transition-all duration-200 mt-4">
+                SIMPAN PERUBAHAN
+            </button>
+            <!-- Danger Zone -->
+            <button class="mt-8 flex items-center justify-center gap-2 text-error-red font-label-md text-label-md hover:underline transition-all">
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 0;">delete</span>
+                Hapus Akun Saya
+            </button>
+        </main>
+    </div>
+
+    <!-- Modern Success Modal -->
+    <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-surface-container-lowest w-full max-w-sm rounded-2xl p-6 shadow-lg border border-border-subtle flex flex-col items-center text-center transform scale-95 transition-transform duration-300">
+            <!-- Icon Success (Green check circle) -->
+            <div class="w-16 h-16 rounded-full bg-success-green/10 text-success-green flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            </div>
+            <!-- Title & Description -->
+            <h3 class="font-headline-md text-headline-md text-primary mb-2">Perubahan Disimpan</h3>
+            <p class="font-body-sm text-body-sm text-text-muted mb-6">
+                Pengaturan akun Anda telah berhasil diperbarui dan disimpan.
+            </p>
+            <!-- Action Button -->
+            <button id="modalOkBtn" class="w-full bg-secondary-container text-primary-container font-headline-md text-headline-md py-3 rounded-xl shadow-sm hover:opacity-90 active:scale-[0.98] transition-all duration-200">
+                OK
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const defaultName = "Budi Santoso";
+            const defaultAvatar = "https://lh3.googleusercontent.com/aida-public/AB6AXuBRiAcATbek4T76G3wq7UyM8Ubj2rtgI4G7LbkwSc_V5LksqFgTgn8IjUzojKRaeosKZtsTxqWPF2Z25dJbNYJvehQaONCZaHHFTGwZhlwtlkRo4E1LY6WD6Mx77KyOCQ8pYb1bnkgffQGXjM95RoHxmTd9RULHj52xjxxCq18KjA-sv9wUKPpXUu_jEIQpQNlt4lLcVNPR474adqz1KYHabhXlEs8HRHaygrKHrlc0AochXIwYYLfy";
+
+            const currentName = localStorage.getItem("userName") || defaultName;
+            let currentAvatar = localStorage.getItem("userAvatar") || defaultAvatar;
+            
+            // Self-healing check for broken localstorage avatar URL
+            if (currentAvatar.includes("AB6AXuBRieAc")) {
+                currentAvatar = defaultAvatar;
+                localStorage.setItem("userAvatar", defaultAvatar);
+            }
+
+            const nameInput = document.getElementById("fullName");
+            const avatarImg = document.getElementById("settings-avatar-display");
+            const saveBtn = document.getElementById("save-settings-btn");
+            const changeAvatarBtn = document.getElementById("change-avatar-btn");
+
+            if (nameInput) nameInput.value = currentName;
+            if (avatarImg) avatarImg.src = currentAvatar;
+
+            // Change Avatar functionality
+            if (changeAvatarBtn) {
+                changeAvatarBtn.addEventListener("click", () => {
+                    const newUrl = prompt("Masukkan URL gambar untuk foto profil baru Anda:", avatarImg.src);
+                    if (newUrl && newUrl.trim() !== "") {
+                        localStorage.setItem("userAvatar", newUrl.trim());
+                        avatarImg.src = newUrl.trim();
+                    }
+                });
+            }
+
+            // Save Settings functionality
+            if (saveBtn) {
+                saveBtn.addEventListener("click", () => {
+                    const newName = nameInput.value.trim();
+                    if (newName !== "") {
+                        localStorage.setItem("userName", newName);
+                        
+                        // Show Success Modal
+                        const modal = document.getElementById("successModal");
+                        const modalContent = modal.querySelector("div");
+                        modal.classList.remove("hidden");
+                        // Trigger reflow to enable transition
+                        modal.offsetHeight;
+                        modal.classList.remove("opacity-0");
+                        modalContent.classList.remove("scale-95");
+                    } else {
+                        // Visual invalid feedback on name input
+                        nameInput.classList.add("border-error-red", "focus:ring-error-red");
+                        setTimeout(() => {
+                            nameInput.classList.remove("border-error-red", "focus:ring-error-red");
+                        }, 3000);
+                    }
+                });
+            }
+
+            // Modal OK Button click functionality
+            const modalOkBtn = document.getElementById("modalOkBtn");
+            if (modalOkBtn) {
+                modalOkBtn.addEventListener("click", () => {
+                    window.location.href = "profile.html";
+                });
+            }
+        });
+    </script>
+</body>
+</html>
