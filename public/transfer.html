@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Transfer - SnapCash</title>
+    <!-- Load Tailwind CSS Compiled stylesheet -->
+    <link rel="stylesheet" href="../dist/css/style.css" />
+    <!-- Load Google Fonts & Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="min-h-screen bg-surface-container-low pb-safe-area-bottom font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"
+  >
+    <div
+      class="relative mx-auto flex min-h-screen w-full max-w-md flex-col overflow-hidden bg-surface-container-lowest sm:my-8 sm:rounded-3xl sm:shadow-lg"
+    >
+      <!-- Header -->
+      <header
+        class="h-navbar-height sticky top-0 z-40 flex w-full items-center justify-between border-b border-subtle bg-surface px-gutter"
+      >
+        <div class="flex w-10 items-center">
+          <a
+            href="index.html"
+            aria-label="Go back"
+            class="hover:bg-surface-container-low flex h-10 w-10 items-center justify-center rounded-full text-primary transition-all active:scale-95"
+          >
+            <span class="material-symbols-outlined">arrow_back</span>
+          </a>
+        </div>
+        <h1 class="font-headline-md text-headline-md text-primary text-center flex-1">
+          Transfer
+        </h1>
+        <div class="w-10"></div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-1 overflow-y-auto">
+        <div class="p-gutter space-y-section-gap">
+          
+          <!-- Section 1: KATEGORI TRANSFER -->
+          <section class="space-y-3">
+            <h2 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+              Kategori Transfer
+            </h2>
+            <!-- Pill Tabs Container -->
+            <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1 snap-x">
+              <button
+                type="button"
+                id="tab-snapcash"
+                data-tab="snapcash"
+                class="tab-btn flex-shrink-0 snap-start px-5 py-2.5 rounded-full font-label-md text-label-md font-bold transition-all duration-200 active:scale-95 shadow-sm bg-secondary-fixed text-on-secondary-fixed"
+              >
+                <div class="flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[18px]">bolt</span>
+                  <span>Ke SnapCash</span>
+                </div>
+              </button>
+              <button
+                type="button"
+                id="tab-bank"
+                data-tab="bank"
+                class="tab-btn flex-shrink-0 snap-start px-5 py-2.5 rounded-full font-body-sm text-body-sm font-medium transition-all duration-200 active:scale-95 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface"
+              >
+                <div class="flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[18px]">account_balance</span>
+                  <span>Ke Bank Lain</span>
+                </div>
+              </button>
+              <button
+                type="button"
+                id="tab-ewallet"
+                data-tab="ewallet"
+                class="tab-btn flex-shrink-0 snap-start px-5 py-2.5 rounded-full font-body-sm text-body-sm font-medium transition-all duration-200 active:scale-95 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface"
+              >
+                <div class="flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+                  <span>Ke E-Wallet</span>
+                </div>
+              </button>
+            </div>
+          </section>
+
+          <!-- Section 2: DYNAMIC INPUT CARD -->
+          <section id="input-card" class="bg-surface-container-lowest p-6 rounded-3xl border border-border-subtle shadow-sm space-y-4">
+            
+            <!-- Form SnapCash -->
+            <div id="form-snapcash" class="space-y-2">
+              <label class="block text-xs text-text-muted font-medium mb-1.5">Nomor HP atau ID SnapCash</label>
+              <div class="relative flex items-center border border-outline-variant focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/10 rounded-2xl px-4 py-3.5 bg-surface-container-lowest transition-all duration-200">
+                <span class="material-symbols-outlined text-outline mr-3">phone_iphone</span>
+                <input
+                  id="input-snapcash-id"
+                  class="w-full bg-transparent border-none outline-none font-body-md text-body-md text-primary p-0 placeholder-text-muted focus:ring-0"
+                  type="text"
+                  placeholder="Contoh: 08123456789 atau snap_user"
+                />
+              </div>
+              <p id="snapcash-validation-msg" class="text-[11px] text-text-muted/80 leading-tight transition-colors duration-200 mt-1">Masukkan nomor HP aktif yang terdaftar di SnapCash</p>
+            </div>
+
+            <!-- Form Bank (Hidden by default) -->
+            <div id="form-bank" class="space-y-4 hidden">
+              <!-- Select Bank Selector -->
+              <div class="space-y-2">
+                <label class="block text-xs text-text-muted font-medium mb-1.5">Bank Tujuan</label>
+                <button
+                  type="button"
+                  id="select-bank-trigger"
+                  class="w-full flex items-center justify-between border border-outline-variant hover:border-outline rounded-2xl px-4 py-3.5 bg-surface-container-lowest transition-all duration-200 text-left active:scale-[0.99]"
+                >
+                  <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-outline" id="selected-bank-icon">account_balance</span>
+                    <span id="selected-bank-name" class="font-body-md text-body-md text-text-muted">Pilih Bank</span>
+                  </div>
+                  <span class="material-symbols-outlined text-outline transition-transform duration-200" id="select-bank-chevron">expand_more</span>
+                </button>
+              </div>
+
+              <!-- Account Number Input -->
+              <div class="space-y-2">
+                <label class="block text-xs text-text-muted font-medium mb-1.5">Nomor Rekening</label>
+                <div class="relative flex items-center border border-outline-variant focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/10 rounded-2xl px-4 py-3.5 bg-surface-container-lowest transition-all duration-200">
+                  <span class="material-symbols-outlined text-outline mr-3">credit_card</span>
+                  <input
+                    id="input-bank-acc"
+                    class="w-full bg-transparent border-none outline-none font-body-md text-body-md text-primary p-0 placeholder-text-muted focus:ring-0"
+                    type="text"
+                    inputmode="numeric"
+                    placeholder="Contoh: 1234567890"
+                  />
+                </div>
+                <p id="bank-validation-msg" class="text-[11px] text-text-muted/80 leading-tight transition-colors duration-200 mt-1">Ketik nomor rekening bank tujuan dengan benar</p>
+              </div>
+            </div>
+
+            <!-- Form E-Wallet (Hidden by default) -->
+            <div id="form-ewallet" class="space-y-4 hidden">
+              <!-- Select E-Wallet Selector -->
+              <div class="space-y-2">
+                <label class="block text-xs text-text-muted font-medium mb-1.5">Provider E-Wallet</label>
+                <button
+                  type="button"
+                  id="select-ewallet-trigger"
+                  class="w-full flex items-center justify-between border border-outline-variant hover:border-outline rounded-2xl px-4 py-3.5 bg-surface-container-lowest transition-all duration-200 text-left active:scale-[0.99]"
+                >
+                  <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-outline" id="selected-ewallet-icon">account_balance_wallet</span>
+                    <span id="selected-ewallet-name" class="font-body-md text-body-md text-text-muted">Pilih E-Wallet</span>
+                  </div>
+                  <span class="material-symbols-outlined text-outline transition-transform duration-200" id="select-ewallet-chevron">expand_more</span>
+                </button>
+              </div>
+
+              <!-- Phone Number Input -->
+              <div class="space-y-2">
+                <label class="block text-xs text-text-muted font-medium mb-1.5">Nomor HP E-Wallet</label>
+                <div class="relative flex items-center border border-outline-variant focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/10 rounded-2xl px-4 py-3.5 bg-surface-container-lowest transition-all duration-200">
+                  <span class="material-symbols-outlined text-outline mr-3">phone_android</span>
+                  <input
+                    id="input-ewallet-phone"
+                    class="w-full bg-transparent border-none outline-none font-body-md text-body-md text-primary p-0 placeholder-text-muted focus:ring-0"
+                    type="tel"
+                    placeholder="Contoh: 0812xxxxxxxx"
+                  />
+                </div>
+                <p id="ewallet-validation-msg" class="text-[11px] text-text-muted/80 leading-tight transition-colors duration-200 mt-1">Masukkan nomor handphone tujuan e-wallet</p>
+              </div>
+            </div>
+
+          </section>
+
+          <!-- Section 3: TUJUAN TERSIMPAN (RECENT) -->
+          <section class="space-y-3">
+            <div class="flex justify-between items-end">
+              <h3 class="font-body-sm text-body-sm text-on-surface-variant font-semibold">Tujuan Tersimpan (Terakhir)</h3>
+              <button type="button" class="font-label-md text-label-md text-primary hover:opacity-80 transition-opacity flex items-center">
+                Semua <span class="material-symbols-outlined text-[16px] ml-0.5">chevron_right</span>
+              </button>
+            </div>
+            
+            <!-- Horizontal scroll list -->
+            <div class="flex gap-4 overflow-x-auto no-scrollbar pb-2 snap-x">
+              
+              <!-- Contact 1: SnapCash -->
+              <div class="recent-contact-item flex flex-col items-center gap-1.5 min-w-[72px] snap-start cursor-pointer hover:opacity-90 transition-all duration-150"
+                data-type="snapcash" data-name="Andi S." data-detail="08123456789">
+                <div class="relative">
+                  <img class="w-14 h-14 rounded-full object-cover border-2 border-transparent hover:border-secondary-fixed transition-colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4IsGFe789s2uRg1c1MGnamQKkrEK7EnnYIFiLo5CIZB37q_OPrnMV-Y-6HAnkRA0qh-cA8sWCJunxeOt_nelg2nlT9Q7GSaaV9AT4O7VuQWwP5OEj9iPqSML70OFJ0c6YdHcqz7huXKi4UMpBlqKwMKEsSHuEh9CbIs93rsm8Tq5d9T7D1qFiywoFoRkMugZ7iTiTfykQoZA1KxXTMUSX78CA8YeMTPv-4z29tzdxWiXq8407cb7T" alt="Andi" />
+                  <span class="absolute -bottom-1 -right-1 w-5 h-5 bg-secondary-fixed text-on-secondary-fixed text-[10px] rounded-full flex items-center justify-center font-bold border-2 border-white shadow-sm select-none" title="SnapCash">SC</span>
+                </div>
+                <span class="font-body-sm text-body-sm text-on-surface text-center truncate w-full font-medium">Andi S.</span>
+              </div>
+
+              <!-- Contact 2: Bank BCA -->
+              <div class="recent-contact-item flex flex-col items-center gap-1.5 min-w-[72px] snap-start cursor-pointer hover:opacity-90 transition-all duration-150"
+                data-type="bank" data-name="Budi K." data-detail="1234567890" data-bank="BCA">
+                <div class="relative">
+                  <div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-headline-md text-headline-md border-2 border-transparent hover:border-secondary-fixed transition-colors select-none">
+                    BK
+                  </div>
+                  <span class="absolute -bottom-1 -right-1 w-5 h-5 bg-blue-600 text-white text-[8px] rounded-full flex items-center justify-center font-bold border-2 border-white shadow-sm select-none" title="BCA">BCA</span>
+                </div>
+                <span class="font-body-sm text-body-sm text-on-surface text-center truncate w-full font-medium">Budi K.</span>
+              </div>
+
+              <!-- Contact 3: GoPay -->
+              <div class="recent-contact-item flex flex-col items-center gap-1.5 min-w-[72px] snap-start cursor-pointer hover:opacity-90 transition-all duration-150"
+                data-type="ewallet" data-name="Siska" data-detail="08776655443" data-ewallet="GoPay">
+                <div class="relative">
+                  <img class="w-14 h-14 rounded-full object-cover border-2 border-transparent hover:border-secondary-fixed transition-colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_COaHrs5C8eUP9uk5miih2Jy_jzU8KLJVnQf4Syz2Vo5qUdE-9Ah04cBKj7a9k5GXcr6dYBkqkbPMoNw1_GfbouzFT7773iYjTRFXSbIih4-OFbmqPm83Ngf9ptlOYFBgu1zyvzLeUwk1CS3_QDyDB7KSIFaz1NlD8sAnFiNWTqcH5IcyQzXwh3TxhE_6OzhJenhNGFdZiK3dVB9NR1qUak5Oe89EVrz4PxBqmHIznnWzUWc5M1g7" alt="Siska" />
+                  <span class="absolute -bottom-1 -right-1 w-5 h-5 bg-teal-500 text-white text-[8px] rounded-full flex items-center justify-center font-bold border-2 border-white shadow-sm select-none" title="GoPay">GP</span>
+                </div>
+                <span class="font-body-sm text-body-sm text-on-surface text-center truncate w-full font-medium">Siska</span>
+              </div>
+
+              <!-- Contact 4: Bank Mandiri -->
+              <div class="recent-contact-item flex flex-col items-center gap-1.5 min-w-[72px] snap-start cursor-pointer hover:opacity-90 transition-all duration-150"
+                data-type="bank" data-name="Dina W." data-detail="9876543210" data-bank="Mandiri">
+                <div class="relative">
+                  <div class="w-14 h-14 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed font-headline-md text-headline-md border-2 border-transparent hover:border-secondary-fixed transition-colors select-none">
+                    DW
+                  </div>
+                  <span class="absolute -bottom-1 -right-1 w-5 h-5 bg-yellow-500 text-primary text-[8px] rounded-full flex items-center justify-center font-bold border-2 border-white shadow-sm select-none" title="Mandiri">MDR</span>
+                </div>
+                <span class="font-body-sm text-body-sm text-on-surface text-center truncate w-full font-medium">Dina W.</span>
+              </div>
+
+            </div>
+          </section>
+
+        </div>
+      </main>
+
+      <!-- Bottom Action Button Container (Contained inside parent, no layout break) -->
+      <div class="p-gutter bg-surface/85 backdrop-blur-md border-t border-border-subtle z-30">
+        <button
+          id="btn-cek-nomor"
+          disabled
+          class="w-full bg-secondary-fixed hover:bg-secondary-fixed-dim disabled:opacity-50 disabled:pointer-events-none text-primary font-headline-md text-headline-md py-4 rounded-2xl shadow-md transition-all active:scale-[0.98] flex items-center justify-center gap-2"
+        >
+          <span id="btn-text">Lanjut</span>
+          <span id="btn-spinner" class="hidden animate-spin h-5 w-5 border-2 border-primary border-t-transparent rounded-full"></span>
+          <span id="btn-icon" class="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </div>
+
+      <!-- BOTTOM SHEET: BANK / E-WALLET SELECTOR -->
+      <div id="bottom-sheet-backdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div id="bottom-sheet" class="absolute bottom-0 left-0 right-0 max-w-md mx-auto bg-surface rounded-t-3xl shadow-xl flex flex-col max-h-[85vh] transition-transform duration-300 translate-y-full">
+          <!-- Sheet Drag Indicator -->
+          <div class="w-12 h-1 bg-surface-container-highest rounded-full mx-auto my-3 flex-shrink-0"></div>
+          
+          <!-- Sheet Header -->
+          <div class="px-gutter pb-4 border-b border-border-subtle flex items-center justify-between">
+            <h3 id="sheet-title" class="font-headline-md text-headline-md text-primary">Pilih Tujuan</h3>
+            <button type="button" id="close-sheet-btn" class="hover:bg-surface-container-low flex h-8 w-8 items-center justify-center rounded-full text-text-muted transition-all">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+
+          <!-- Sheet List Area -->
+          <div class="flex-1 overflow-y-auto p-gutter space-y-3" id="sheet-list-container">
+            <!-- List items dynamically generated via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- CONFIRMATION MODAL -->
+      <div id="confirm-modal-backdrop" class="fixed inset-0 bg-black/50 backdrop-blur-md z-50 flex items-center justify-center p-gutter opacity-0 pointer-events-none transition-opacity duration-300">
+        <div id="confirm-modal" class="w-full max-w-sm bg-surface-container-lowest rounded-3xl border border-border-subtle shadow-xl overflow-hidden p-6 space-y-6 transform scale-95 opacity-0 transition-all duration-300">
+          
+          <!-- Header Modal -->
+          <div class="text-center space-y-2">
+            <div class="w-12 h-12 rounded-full bg-secondary-fixed/20 text-on-secondary-fixed-variant mx-auto flex items-center justify-center">
+              <span class="material-symbols-outlined text-[28px]">verified_user</span>
+            </div>
+            <h4 class="font-headline-md text-headline-md text-primary">Detail Penerima Ditemukan</h4>
+            <p class="font-body-sm text-body-sm text-text-muted">Pastikan nama penerima dan detail rekening di bawah ini sudah benar.</p>
+          </div>
+
+          <!-- Details Card -->
+          <div class="bg-surface-container-low rounded-2xl p-4 space-y-3">
+            <div class="flex justify-between items-center py-1">
+              <span class="font-body-sm text-body-sm text-text-muted">Nama Penerima</span>
+              <span id="confirm-recipient-name" class="font-label-md text-label-md text-primary">Rudi Hermawan</span>
+            </div>
+            <hr class="border-t border-border-subtle" />
+            <div class="flex justify-between items-center py-1">
+              <span class="font-body-sm text-body-sm text-text-muted">Tujuan / Provider</span>
+              <span id="confirm-recipient-type" class="font-label-md text-label-md text-primary">Bank BCA</span>
+            </div>
+            <hr class="border-t border-border-subtle" />
+            <div class="flex justify-between items-center py-1">
+              <span class="font-body-sm text-body-sm text-text-muted">No. HP / Rekening</span>
+              <span id="confirm-recipient-number" class="font-label-md text-label-md text-primary">1234567890</span>
+            </div>
+          </div>
+
+          <!-- Modal Buttons -->
+          <div class="flex gap-3">
+            <button
+              type="button"
+              id="confirm-modal-cancel"
+              class="flex-1 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md py-3.5 rounded-xl transition-all duration-200 active:scale-95 text-center font-bold"
+            >
+              Ubah
+            </button>
+            <button
+              type="button"
+              id="confirm-modal-next"
+              class="flex-1 bg-secondary-fixed hover:bg-secondary-fixed-dim text-on-secondary-fixed font-label-md text-label-md py-3.5 rounded-xl transition-all duration-200 active:scale-95 text-center font-bold"
+            >
+              Lanjut
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../src/js/app.js"></script>
+    <script src="../src/js/transfer.js"></script>
+  </body>
+</html>

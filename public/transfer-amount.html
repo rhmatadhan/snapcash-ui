@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Input Nominal - SnapCash</title>
+    <!-- Load Tailwind CSS Compiled stylesheet -->
+    <link rel="stylesheet" href="../dist/css/style.css" />
+    <!-- Load Google Fonts & Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="min-h-screen bg-surface-container-low pb-safe-area-bottom font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"
+  >
+    <div
+      class="relative mx-auto flex min-h-screen w-full max-w-md flex-col overflow-hidden bg-surface-container-lowest sm:my-8 sm:rounded-3xl sm:shadow-lg"
+    >
+      <!-- Header -->
+      <header
+        class="h-navbar-height sticky top-0 z-40 flex w-full items-center justify-between border-b border-subtle bg-surface px-gutter"
+      >
+        <div class="flex w-10 items-center">
+          <a
+            href="transfer.html"
+            aria-label="Go back"
+            class="hover:bg-surface-container-low flex h-10 w-10 items-center justify-center rounded-full text-primary transition-all active:scale-95"
+          >
+            <span class="material-symbols-outlined">arrow_back</span>
+          </a>
+        </div>
+        <h1 class="font-headline-md text-headline-md text-primary text-center flex-1">
+          Kirim Uang
+        </h1>
+        <div class="w-10"></div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-1 overflow-y-auto">
+        <div class="p-gutter space-y-section-gap">
+          
+          <!-- Section 1: PENERIMA TRANSFER -->
+          <section class="space-y-3">
+            <div class="flex justify-between items-center">
+              <h2 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+                Penerima Transfer
+              </h2>
+              <a
+                href="transfer.html"
+                class="font-label-md text-label-md text-primary hover:opacity-80 transition-opacity"
+              >
+                Ubah
+              </a>
+            </div>
+            
+            <!-- Smart Recipient Card -->
+            <div
+              id="recipient-card"
+              class="bg-surface-container rounded-3xl p-4 flex items-center gap-4 border border-border-subtle shadow-sm relative overflow-hidden"
+            >
+              <!-- Avatar or Icon Placeholder -->
+              <div id="recipient-avatar-container" class="relative flex-shrink-0">
+                <div
+                  id="recipient-avatar-fallback"
+                  class="w-12 h-12 rounded-full bg-primary-fixed text-primary font-bold text-lg flex items-center justify-center select-none"
+                >
+                  --
+                </div>
+                <img
+                  id="recipient-avatar-img"
+                  class="w-12 h-12 rounded-full object-cover border border-outline-variant hidden"
+                  src=""
+                  alt="Avatar"
+                />
+                <span
+                  id="recipient-badge"
+                  class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center font-bold border-2 border-white shadow-sm text-[8px] text-white select-none bg-outline"
+                >
+                  --
+                </span>
+              </div>
+              
+              <!-- Info text -->
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-1.5">
+                  <p id="recipient-name" class="font-headline-md text-headline-md text-primary truncate">
+                    Memuat...
+                  </p>
+                  <span
+                    id="recipient-verified"
+                    class="material-symbols-outlined text-success-green bg-success-green/10 p-0.5 rounded-full text-[14px] hidden"
+                    style="font-variation-settings: 'FILL' 1"
+                  >
+                    verified
+                  </span>
+                </div>
+                <p id="recipient-detail" class="font-body-sm text-body-sm text-text-muted mt-0.5 truncate">
+                  --
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 2: MASUKKAN NOMINAL -->
+          <section class="space-y-3">
+            <div class="flex justify-between items-end">
+              <h2 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+                Masukkan Nominal
+              </h2>
+              <p class="font-body-sm text-body-sm text-text-muted">
+                Saldo Aktif: <span class="font-semibold text-primary">Rp 12.450.000</span>
+              </p>
+            </div>
+            
+            <div class="relative">
+              <!-- Giant Currency Input Container -->
+              <div
+                class="flex items-center justify-center border-b-2 border-outline-variant focus-within:border-primary py-5 bg-transparent transition-all duration-200"
+              >
+                <span class="text-[28px] font-extrabold text-primary mr-1 select-none">Rp</span>
+                <input
+                  id="input-nominal"
+                  class="w-full bg-transparent border-none outline-none font-headline-xl text-headline-xl text-primary p-0 placeholder-text-muted/40 focus:ring-0 text-left font-extrabold"
+                  type="text"
+                  inputmode="numeric"
+                  placeholder="0"
+                  maxlength="11"
+                  autocomplete="off"
+                />
+              </div>
+              <p
+                id="nominal-warning-msg"
+                class="text-[11px] text-error hidden leading-tight transition-colors duration-200 mt-2 font-medium"
+              >
+                Nominal melebihi saldo aktif Anda
+              </p>
+            </div>
+
+            <!-- Quick Chips Grid -->
+            <div class="grid grid-cols-4 gap-2.5 mt-4">
+              <button
+                type="button"
+                data-amount="50000"
+                class="quick-chip-btn py-2 px-1 text-center border border-border-subtle rounded-full bg-surface-container hover:bg-surface-container-high font-body-sm text-body-sm text-on-surface-variant font-semibold transition-all active:scale-95 select-none"
+              >
+                50 Rb
+              </button>
+              <button
+                type="button"
+                data-amount="100000"
+                class="quick-chip-btn py-2 px-1 text-center border border-border-subtle rounded-full bg-surface-container hover:bg-surface-container-high font-body-sm text-body-sm text-on-surface-variant font-semibold transition-all active:scale-95 select-none"
+              >
+                100 Rb
+              </button>
+              <button
+                type="button"
+                data-amount="200000"
+                class="quick-chip-btn py-2 px-1 text-center border border-border-subtle rounded-full bg-surface-container hover:bg-surface-container-high font-body-sm text-body-sm text-on-surface-variant font-semibold transition-all active:scale-95 select-none"
+              >
+                200 Rb
+              </button>
+              <button
+                type="button"
+                data-amount="500000"
+                class="quick-chip-btn py-2 px-1 text-center border border-border-subtle rounded-full bg-surface-container hover:bg-surface-container-high font-body-sm text-body-sm text-on-surface-variant font-semibold transition-all active:scale-95 select-none"
+              >
+                500 Rb
+              </button>
+            </div>
+          </section>
+
+          <!-- Section 3: CATATAN (OPSIONAL) -->
+          <section class="space-y-3">
+            <h2 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+              Catatan (Opsional)
+            </h2>
+            <div
+              class="relative flex items-center border border-outline-variant focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/10 rounded-2xl px-4 py-3.5 bg-surface-container-lowest transition-all duration-200"
+            >
+              <span class="material-symbols-outlined text-outline mr-3">edit_note</span>
+              <input
+                id="input-note"
+                class="w-full bg-transparent border-none outline-none font-body-md text-body-md text-primary p-0 placeholder-text-muted focus:ring-0"
+                type="text"
+                placeholder="Bayar utang makan siang, dsb..."
+                maxlength="50"
+              />
+            </div>
+          </section>
+
+        </div>
+      </main>
+
+      <!-- Bottom Action Button Container -->
+      <div class="p-gutter bg-surface/85 backdrop-blur-md border-t border-border-subtle z-30">
+        <!-- Transfer Summary Details -->
+        <div id="transfer-summary" class="hidden mb-4 space-y-2 border-b border-dashed border-border-subtle pb-3 font-body-sm text-body-sm text-on-surface-variant animate-[slideUp_0.2s_ease-out]">
+          <div class="flex justify-between">
+            <span class="text-text-muted">Nominal Transfer</span>
+            <span id="summary-nominal" class="font-semibold text-primary">Rp 0</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-text-muted">Biaya Admin</span>
+            <span id="summary-admin" class="font-semibold text-primary">Gratis</span>
+          </div>
+          <div class="flex justify-between pt-1 font-headline-md text-headline-md">
+            <span class="text-primary font-bold">Total</span>
+            <span id="summary-total" class="font-bold text-primary">Rp 0</span>
+          </div>
+        </div>
+
+        <button
+          id="btn-confirm-transfer"
+          disabled
+          class="w-full bg-secondary-fixed hover:bg-secondary-fixed-dim disabled:opacity-50 disabled:pointer-events-none text-primary font-headline-md text-headline-md py-4 rounded-2xl shadow-md transition-all active:scale-[0.98] flex items-center justify-center gap-2"
+        >
+          <span id="btn-text">Lanjut Transfer</span>
+          <span id="btn-spinner" class="hidden animate-spin h-5 w-5 border-2 border-primary border-t-transparent rounded-full"></span>
+          <span id="btn-icon" class="material-symbols-outlined">arrow_forward</span>
+        </button>
+        
+        <!-- Safety Footer -->
+        <div class="mt-4 flex items-center justify-center gap-1.5 opacity-60">
+          <span class="material-symbols-outlined text-[16px] text-text-muted">lock</span>
+          <p class="text-[10px] font-semibold text-text-muted tracking-tight">
+            Transaksi dilindungi oleh Enkripsi SnapCash Guard
+          </p>
+        </div>
+      </div>
+
+      <!-- PIN / PASSCODE MODAL OVERLAY -->
+      <div
+        id="pin-modal-backdrop"
+        class="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-end sm:items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300"
+      >
+        <div
+          id="pin-modal"
+          class="w-full max-w-md bg-surface rounded-t-3xl sm:rounded-3xl shadow-xl overflow-hidden p-6 space-y-6 transform translate-y-full sm:translate-y-0 sm:scale-95 opacity-0 transition-all duration-300"
+        >
+          <!-- Header Passcode -->
+          <div class="text-center space-y-2 relative">
+            <button
+              type="button"
+              id="pin-modal-close"
+              class="absolute left-0 top-0 hover:bg-surface-container-low flex h-8 w-8 items-center justify-center rounded-full text-text-muted transition-all"
+            >
+              <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="w-12 h-12 rounded-full bg-secondary-fixed/20 text-on-secondary-fixed-variant mx-auto flex items-center justify-center">
+              <span class="material-symbols-outlined text-[28px]">lock</span>
+            </div>
+            <h4 class="font-headline-lg text-headline-lg text-primary">Masukkan PIN SnapCash</h4>
+            <p class="font-body-sm text-body-sm text-text-muted">Gunakan PIN 6-digit Anda untuk otorisasi transfer.</p>
+          </div>
+
+          <!-- Passcode Indicator Dots -->
+          <div class="flex justify-center gap-4 py-4" id="pin-indicators">
+            <div class="w-3.5 h-3.5 rounded-full border-2 border-outline transition-all duration-150"></div>
+            <div class="w-3.5 h-3.5 rounded-full border-2 border-outline transition-all duration-150"></div>
+            <div class="w-3.5 h-3.5 rounded-full border-2 border-outline transition-all duration-150"></div>
+            <div class="w-3.5 h-3.5 rounded-full border-2 border-outline transition-all duration-150"></div>
+            <div class="w-3.5 h-3.5 rounded-full border-2 border-outline transition-all duration-150"></div>
+            <div class="w-3.5 h-3.5 rounded-full border-2 border-outline transition-all duration-150"></div>
+          </div>
+          
+          <div id="pin-error-msg" class="text-center text-xs text-error font-semibold hidden animate-[shake_0.3s_ease-in-out]">
+            PIN salah. Silakan coba lagi.
+          </div>
+
+          <!-- Keypad Grid (Numeric Keyboard) -->
+          <div class="grid grid-cols-3 gap-y-4 gap-x-6 max-w-xs mx-auto pb-4">
+            <button type="button" class="keypad-btn h-14 rounded-2xl hover:bg-surface-container-high text-xl font-bold text-primary active:scale-95 transition-all select-none">1</button>
+            <button type="button" class="keypad-btn h-14 rounded-2xl hover:bg-surface-container-high text-xl font-bold text-primary active:scale-95 transition-all select-none">2</button>
+            <button type="button" class="keypad-btn h-14 rounded-2xl hover:bg-surface-container-high text-xl font-bold text-primary active:scale-95 transition-all select-none">3</button>
+            
+            <button type="button" class="keypad-btn h-14 rounded-2xl hover:bg-surface-container-high text-xl font-bold text-primary active:scale-95 transition-all select-none">4</button>
+            <button type="button" class="keypad-btn h-14 rounded-2xl hover:bg-surface-container-high text-xl font-bold text-primary active:scale-95 transition-all select-none">5</button>
+            <button type="button" class="keypad-btn h-14 rounded-2xl hover:bg-surface-container-high text-xl font-bold text-primary active:scale-95 transition-all select-none">6</button>
+            
+            <button type="button" class="keypad-btn h-14 rounded-2xl hover:bg-surface-container-high text-xl font-bold text-primary active:scale-95 transition-all select-none">7</button>
+            <button type="button" class="keypad-btn h-14 rounded-2xl hover:bg-surface-container-high text-xl font-bold text-primary active:scale-95 transition-all select-none">8</button>
+            <button type="button" class="keypad-btn h-14 rounded-2xl hover:bg-surface-container-high text-xl font-bold text-primary active:scale-95 transition-all select-none">9</button>
+            
+            <div class="h-14"></div>
+            <button type="button" class="keypad-btn h-14 rounded-2xl hover:bg-surface-container-high text-xl font-bold text-primary active:scale-95 transition-all select-none">0</button>
+            <button type="button" id="keypad-backspace" class="h-14 rounded-2xl hover:bg-surface-container-high text-primary flex items-center justify-center active:scale-95 transition-all select-none">
+              <span class="material-symbols-outlined text-2xl">backspace</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../src/js/app.js"></script>
+    <script src="../src/js/transfer-amount.js"></script>
+  </body>
+</html>
