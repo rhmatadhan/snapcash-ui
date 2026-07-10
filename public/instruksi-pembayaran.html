@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Instruksi Pembayaran - SnapCash</title>
+    <!-- Load Tailwind CSS Compiled stylesheet -->
+    <link rel="stylesheet" href="../dist/css/style.css" />
+    <!-- Load Google Fonts & Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="min-h-screen bg-surface-container-low pb-safe-area-bottom font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"
+  >
+    <div
+      class="relative mx-auto flex min-h-screen w-full max-w-md flex-col overflow-hidden bg-surface-container-lowest sm:my-8 sm:rounded-3xl sm:shadow-lg"
+    >
+      <!-- Header -->
+      <header
+        class="h-navbar-height sticky top-0 z-50 flex w-full items-center justify-between border-b border-subtle bg-surface px-gutter"
+      >
+        <div class="flex w-10 items-center">
+          <a
+            href="topup.html"
+            aria-label="Go back"
+            class="hover:bg-surface-container-low flex h-10 w-10 items-center justify-center rounded-full text-primary transition-all active:scale-95"
+          >
+            <span class="material-symbols-outlined">arrow_back</span>
+          </a>
+        </div>
+        <h1 class="font-headline-md text-headline-md text-primary text-center flex-1">
+          Instruksi Pembayaran
+        </h1>
+        <div class="w-10"></div>
+      </header>
+
+      <main class="flex-1 overflow-y-auto">
+        <!-- Content Container -->
+        <div class="p-gutter space-y-section-gap pb-24">
+          <!-- Card 1: Total & Timer -->
+          <section
+            class="bg-surface-container-lowest p-6 rounded-3xl shadow-sm border border-border-subtle text-center flex flex-col items-center"
+          >
+            <p class="font-body-sm text-body-sm text-text-muted mb-1">
+              Total Pembayaran
+            </p>
+            <h2
+              id="payment-amount"
+              class="font-headline-xl text-headline-xl text-primary tracking-tight"
+            >
+              Rp 100.000
+            </h2>
+
+            <hr class="border-t border-border-subtle w-full my-5" />
+
+            <p class="font-body-sm text-body-sm text-text-muted mb-3">
+              Selesaikan pembayaran dalam waktu:
+            </p>
+
+            <!-- Countdown Timer Badge -->
+            <div
+              class="inline-flex items-center gap-1.5 bg-error-container/10 border border-error/20 px-4 py-2 rounded-full text-error font-headline-md text-headline-md select-none mb-3 animate-[pulse_2s_infinite]"
+            >
+              <span class="material-symbols-outlined text-[18px]">schedule</span>
+              <span id="countdown-timer">23:59:00</span>
+            </div>
+
+            <p
+              id="payment-deadline"
+              class="font-2xs text-2xs text-text-muted"
+            >
+              Sebelum 11 Juli 2026, 10:11 WIB
+            </p>
+          </section>
+
+          <!-- Card 2: Method & Virtual Account Details -->
+          <section
+            class="bg-surface-container-lowest p-6 rounded-3xl shadow-sm border border-border-subtle space-y-6"
+          >
+            <!-- Selected Method -->
+            <div class="flex items-center justify-between">
+              <span class="font-headline-md text-headline-md text-primary">Metode Pembayaran</span>
+              <div class="flex items-center gap-2">
+                <span id="method-icon-container" class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+                  <span id="method-icon" class="material-symbols-outlined text-[18px]">account_balance</span>
+                </span>
+                <span id="method-name" class="font-label-md text-label-md text-primary">BCA Virtual Account</span>
+              </div>
+            </div>
+
+            <!-- Virtual Account / Payment Code Box -->
+            <div class="space-y-2">
+              <label class="block font-2xs text-2xs text-on-primary-container uppercase tracking-wider">Nomor Virtual Account</label>
+              <div
+                class="flex items-center justify-between bg-surface-container-low border border-border-subtle rounded-2xl p-4 transition-all duration-200"
+              >
+                <span
+                  id="payment-code"
+                  class="font-headline-md text-headline-md text-primary tracking-wider font-semibold select-all"
+                >
+                  8077 0812 3456 7890
+                </span>
+                <button
+                  id="copy-code-btn"
+                  type="button"
+                  class="bg-surface hover:bg-surface-container-high border border-surface-variant px-3 py-1.5 rounded-lg font-label-sm text-label-sm text-text-muted hover:text-primary transition-all duration-200 active:scale-95 flex items-center gap-1 shadow-sm"
+                >
+                  <span id="copy-icon" class="material-symbols-outlined text-[14px]">content_copy</span>
+                  <span id="copy-text">Salin</span>
+                </button>
+              </div>
+            </div>
+
+            <hr class="border-t border-border-subtle" />
+
+            <!-- Payment Instructions Header -->
+            <div class="space-y-4">
+              <h3 class="font-headline-md text-headline-md text-primary">Cara Pembayaran</h3>
+
+              <!-- Dynamic Accordion Panels -->
+              <div class="space-y-3" id="accordion-container">
+                <!-- Accordions will be rendered dynamically by JavaScript based on chosen method -->
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <!-- Fixed Bottom Action Bar -->
+      <div
+        class="absolute bottom-0 left-0 right-0 p-gutter border-subtle bg-surface-container-lowest border-t z-40"
+      >
+        <button
+          id="verify-payment-btn"
+          type="button"
+          class="bg-secondary-fixed hover:bg-secondary-fixed-dim text-primary font-headline-md text-headline-md flex h-14 w-full items-center justify-center gap-2 rounded-2xl shadow-md transition-all active:scale-[0.98] focus:outline-none"
+        >
+          Cek Status Pembayaran
+          <span id="verify-icon" class="material-symbols-outlined text-[20px]">sync</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../src/js/app.js"></script>
+    <script src="../src/js/instruksi-pembayaran.js"></script>
+  </body>
+</html>
