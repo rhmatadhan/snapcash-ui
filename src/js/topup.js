@@ -174,35 +174,15 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.addEventListener("click", () => {
       if (selectedAmount < 10000) return;
       
-      // Perform mockup transaction logic
-      const newBalance = currentBalance + selectedAmount;
-      localStorage.setItem("userBalance", newBalance);
-      
-      // We can also store details for the transaction status or history page
-      const txId = "TX-" + Math.floor(Math.random() * 900000000 + 100000000);
-      const txDetails = {
-        id: txId,
-        type: "Top Up Saldo",
+      const pendingTx = {
         amount: selectedAmount,
-        method: getMethodName(selectedMethod),
-        date: new Date().toLocaleDateString("id-ID", {
-          day: "numeric",
-          month: "long",
-          year: "numeric"
-        }) + ", " + new Date().toLocaleTimeString("id-ID", { hour: '2-digit', minute: '2-digit' }) + " WIB"
+        method: selectedMethod,
+        methodName: getMethodName(selectedMethod),
+        timestamp: Date.now()
       };
       
-      // Save transaction to history list in localStorage if it exists
-      try {
-        let history = JSON.parse(localStorage.getItem("transactionHistory") || "[]");
-        history.unshift(txDetails);
-        localStorage.setItem("transactionHistory", JSON.stringify(history));
-      } catch (e) {
-        console.error("Failed to update history", e);
-      }
-
-      // Redirect to transaction status success state
-      window.location.href = `transaction-status.html?status=success`;
+      localStorage.setItem("pendingTransaction", JSON.stringify(pendingTx));
+      window.location.href = `instruksi-pembayaran.html`;
     });
   }
 
