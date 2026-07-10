@@ -315,16 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
       timestamp: Date.now()
     };
     localStorage.setItem("pendingTransfer", JSON.stringify(transferDetail));
-    
-    // For verification, we redirect to transaction status with complete message or mock step 2
-    // Let's redirect to transaction status if there's no step 2 yet, or just display a success alert.
-    // However, showing a success alert is nicer to demonstrate mock verification.
     closeConfirmModal();
-    
-    // Simulate successful Step 1 completion
-    alert(`Sukses! Data penerima ${transferDetail.name} disimpan ke cache. Mengalihkan ke Halaman Pengiriman Nominal (Step 2)...`);
-    
-    // Optional: Redirect to dashboard or history if needed
-    window.location.href = "index.html";
+    window.location.href = "transfer-amount.html";
   });
 });

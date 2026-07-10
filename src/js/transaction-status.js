@@ -21,7 +21,7 @@ const states = {
       "bg-secondary-container hover:bg-secondary-fixed-dim text-primary-container shadow-[0_4px_14px_rgba(178,247,70,0.25)]",
     secondaryBtnText: "Kembali ke Beranda",
     secondaryBtnClass: "text-text-muted hover:text-primary-container",
-    secondaryBtnAction: "window.location.href='index.html'",
+    secondaryBtnAction: "localStorage.removeItem('pendingTransfer'); window.location.href='index.html'",
   },
   failed: {
     title: "Transaksi Gagal",
@@ -40,7 +40,7 @@ const states = {
       "bg-error-red hover:bg-red-600 text-white shadow-[0_4px_14px_rgba(239,68,68,0.2)]",
     secondaryBtnText: "Butuh Bantuan? Hubungi CS SnapCash",
     secondaryBtnClass: "text-text-muted hover:text-primary-container",
-    secondaryBtnAction: "window.location.href='index.html'",
+    secondaryBtnAction: "localStorage.removeItem('pendingTransfer'); window.location.href='index.html'",
   },
   pending: {
     title: "Menunggu Pembayaran...",
@@ -59,7 +59,7 @@ const states = {
     secondaryBtnText: "Batalkan Transaksi",
     secondaryBtnClass: "text-error-red hover:text-red-700",
     secondaryBtnAction:
-      "if(confirm('Batalkan transaksi ini?')) window.location.href='index.html'",
+      "localStorage.removeItem('pendingTransfer'); if(confirm('Batalkan transaksi ini?')) window.location.href='index.html'",
   },
 };
 
@@ -128,9 +128,15 @@ function setPageState(stateName) {
 
   // Set action for primary button
   if (stateName === "success") {
-    primaryBtn.onclick = () => { window.location.href = "history.html"; };
+    primaryBtn.onclick = () => {
+      localStorage.removeItem("pendingTransfer");
+      window.location.href = "history.html";
+    };
   } else if (stateName === "failed") {
-    primaryBtn.onclick = () => { window.location.href = "index.html"; };
+    primaryBtn.onclick = () => {
+      localStorage.removeItem("pendingTransfer");
+      window.location.href = "index.html";
+    };
   } else if (stateName === "pending") {
     primaryBtn.onclick = () => { window.location.reload(); };
   }
@@ -142,6 +148,41 @@ function setPageState(stateName) {
     "onclick",
     config.secondaryBtnAction || "window.location.href='index.html'"
   );
+
+  // Update transaction details if pendingTransfer exists
+  const pendingTransferRaw = localStorage.getItem("pendingTransfer");
+  if (pendingTransferRaw && stateName === "success") {
+    try {
+      const tx = JSON.parse(pendingTransferRaw);
+      const formatNum = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      
+      const amountEl = document.getElementById("status-amount");
+      const totalEl = document.getElementById("total-amount");
+      const dateEl = document.getElementById("status-date");
+      const refEl = document.getElementById("detail-ref-id");
+      const typeEl = document.getElementById("detail-type");
+      const targetEl = document.getElementById("detail-target");
+      const methodEl = document.getElementById("detail-method");
+      
+      if (amountEl) amountEl.textContent = `Rp ${formatNum(tx.amount)}`;
+      if (totalEl) totalEl.textContent = `Rp ${formatNum(tx.totalAmount)}`;
+      if (dateEl && tx.dateTime) dateEl.textContent = tx.dateTime;
+      if (refEl && tx.referenceId) refEl.textContent = tx.referenceId;
+      if (typeEl) typeEl.textContent = "Transfer Uang";
+      if (targetEl) targetEl.textContent = tx.name;
+      if (methodEl) {
+        if (tx.activeTab === "snapcash") {
+          methodEl.textContent = "Saldo SnapCash";
+        } else if (tx.activeTab === "bank") {
+          methodEl.textContent = `SnapCash ke ${tx.type}`;
+        } else {
+          methodEl.textContent = `SnapCash ke E-Wallet (${tx.type})`;
+        }
+      }
+    } catch (e) {
+      console.error("Failed to parse transaction data on status page", e);
+    }
+  }
 
   // Update URL query parameter without reloading
   const url = new URL(window.location);
